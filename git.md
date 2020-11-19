@@ -1,18 +1,50 @@
-### 基本概念
+### 扫盲
 
-##### 工作区（Working Directory）
+工作区(working tree)、暂存区(index或stage)、版本库、HEAD（游标）。暂存区属于版本库一部分。版本库在.git文件夹中。
 
-##### 版本库（Repository）
+一页显示不完时：q退出，h进入帮助页面。
 
-工作区有一个隐藏目录`.git`，这个不算工作区，而是Git的版本库。
+一台机器只要生成一个密钥？
 
-Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支`master`，以及指向`master`的一个指针叫`HEAD`。 
+修改同一个文件也不一定冲突，只要两个修改隔了大概7行以上。7待确定。
+
+##### clone时https与git区别
+
+git clone https://github.com/account/repository
+
+git clone git@github.com:account/repository
+
+第一种首次下载无需设置，可直接下载，但提交到远端时要进行设置
+
+第二种下载时就要设置，具体可能是（user.name,user.email,密钥，具体还要验证）以后提交到远端直接提交即可
+
+##### 当前节点的祖宗节点如下：
+
+^x: 尖头符号，形似箭头，表示要朝那个方向，始终是走一步，x 表示第几个岔路口，代表方向盘
+
+~y: 波浪符号，表示要在该方向上走 y 步，始终沿着该方向，代表油门
+
+自己: HEAD, HEAD^0 或 HEAD~0
+
+父亲: HEAD^, HEAD~
+
+母亲: HEAD^2
+
+爷爷: HEAD^~, HEAD~2, HEAD^^
+
+奶奶: HEAD^^2, HEAD~^2
+
+姥爷: HEAD^2~, HEAD^2^
+
+姥姥: HEAD^2^2
 
 
 
-##### 一页显示不完时：q退出，h进入帮助页面。
 
 
+
+
+### 命令
 
 ##### git help
 
@@ -62,11 +94,11 @@ Git的版本库里存了很多东西，其中最重要的就是称为stage（或
 
 ##### git diff [file1 file2]
 
-查看工作区与缓存区变化。新file（也就是只有工作区才有的file）diff追踪不到。
+查看工作区与暂存区变化。新file（也就是只有工作区才有的file）diff追踪不到。
 
 ##### git checkout -- file
 
-首先尝试从缓存区覆盖工作区文件，若缓存区无此文件，则从版本库覆盖工作区文件。覆盖后无法恢复。
+首先尝试从暂存区覆盖工作区文件，若暂存区无此文件，则从最新版本覆盖工作区文件。覆盖后无法恢复。
 
 
 
@@ -76,11 +108,13 @@ Git的版本库里存了很多东西，其中最重要的就是称为stage（或
 
 ##### git diff --staged [file1 file2]（git diff --cached）
 
-查看缓存区与版本库变化
+查看暂存区与当前版本变化
 
 ##### git diff HEAD [-- file1 file2]
 
-查看工作区与版本库变化
+查看工作区与当前版本变化
+
+
 
  
 
@@ -98,13 +132,27 @@ Git的版本库里存了很多东西，其中最重要的就是称为stage（或
 
 
 
+
+
 ##### git reset --hard HEAD^
 
-HEAD^表示上个版本，依此类推HEAD^^ HEAD~100。
+将当前分支版本回退到上个版本，HEAD^表示上个版本，依此类推HEAD^^ HEAD~100。
 
 ##### git reset --hard commitid
 
-`--hard`参数有啥意义？这个后面再讲，现在你先放心使用。
+同上，直接使用commitid更直接
+
+##### --soft --mixed --hard。如果没有给出，则默认是--mixed
+
+##### 注意：git reset HEAD实际是git reset --mixed HEAD，即git reset HEAD与git reset HEAD^有重要区别。
+
+使用`--soft`参数将会仅仅重置`HEAD`到指定的版本，不会修改index和working tree 
+
+使用`--mixed`参数与--soft的不同之处在于，--mixed修改了index，使其与第二个版本匹配。index中给定commit之后的修改被unstaged。 
+
+使用`--hard`同时也会修改working tree，也就是当前的工作目录，如果我们执行`git reset --hard HEAD~`，那么最后一次提交的修改，包括本地文件的修改都会被清楚，彻底还原到上一次提交的状态且无法找回。所以在执行`reset --hard`之前一定要小心。
+
+
 
 
 
@@ -116,9 +164,7 @@ HEAD^表示上个版本，依此类推HEAD^^ HEAD~100。
 
 ##### git reset HEAD [file1 file2]
 
-把暂存区的修改回退到工作区，也就是恢复暂存区与版本库一致，将add操作取消，此时
-
-
+恢复暂存区与最新版本一致，将工作区的add操作取消。
 
 
 
@@ -126,17 +172,17 @@ HEAD^表示上个版本，依此类推HEAD^^ HEAD~100。
 
 ##### rm [file1 file2]
 
-此时可从缓存区恢复到工作目录，git checkout -- file
+此时可从暂存区恢复到工作目录，git checkout -- file
 
 从来没有被添加到版本库就被删除的文件，是无法恢复的！ 
 
 ##### git add [file1 file2]
 
-此时可从版本库恢复到缓存区，git reset HEAD file
+此时可从最新版本恢复到暂存区，git reset HEAD file
 
 ##### git rm [file1 file2]
 
-在工作区删除文件，并提交到缓存区，相当于上面两步骤合并，rm+git add
+在工作区删除文件，并提交到暂存区，相当于上面两步骤合并，rm+git add
 
 ##### git commit -m asdf
 
@@ -146,25 +192,27 @@ HEAD^表示上个版本，依此类推HEAD^^ HEAD~100。
 
 
 
-##### git branch dev
-
 ##### git branch
 
 ##### git switch(checkout) dev
 
+##### git branch dev
+
+创建分支
+
 ##### git switch -c dev(git checkout -b dev)
 
-创建变切换分支
-
-##### git merge dev
-
-合并某分支到当前分支
+创建并切换分支
 
 ##### git branch -d dev
 
 删除分支
 
-#####  git diff master dev  [file1 file2]
+##### git merge dev
+
+合并某分支到当前分支
+
+##### git diff master dev  [file1 file2]
 
  以master分支为参照，比较dev分支和master分支之间的差异。 都是版本库的。
 
@@ -182,7 +230,9 @@ HEAD^表示上个版本，依此类推HEAD^^ HEAD~100。
 
 ### 远程仓库
 
- 第1步：创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有`id_rsa`和`id_rsa.pub`这两个文件，如果已经有了，可直接跳到下一步。
+#####  ssh key设置
+
+第1步：创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有`id_rsa`和`id_rsa.pub`这两个文件，如果已经有了，可直接跳到下一步。
 
 如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key： 
 
@@ -206,31 +256,132 @@ $ ssh-keygen -t rsa -C "youremail@example.com"
 
 
 
+
+
 ##### git remote add origin 2818qq.com:wanghonglei/some.git
 
 将一个已有的本地仓库与之关联，origin是远程库的名字，可自定义。后面可将本地仓库推送到远端
-
-
-
-##### git push -u origin master
-
-必须远端添加了公钥才可以推送。第一次推送加-u，将本地master分支和远程master分支关联。 在以后的推送或者拉取时就可以简化命令。 现在GitHub页面中看到远程库的内容已经和本地一模一样。
-
-
-
-##### git push origin master
-
-从现在起只要本地作了提交，就可以通过这个命令同步，真正的分布式版本库！
-
-
 
 ##### git remote
 
 ##### git remote -v
 
+显示所有关联的远程仓库
+
+##### git remote show [remote]
+
+显示远程仓库关联的详细信息
+
+##### git remote rm name
+
+删除与远程仓库的关联
+
+##### git remote rename old_name new_name
+
+重命名与远程仓库的命名
+
+
+
+
+
+##### git push origin master:master
+
+必须远端添加了公钥才可以push。
+
+git push <远程主机名>  <本地分支名>:<远程分支名>
+
+##### git push origin master
+
+如果本地分支名与远程分支名相同，则可以省略冒号
+
+##### git push --force origin master:master
+
+如果本地版本与远程版本有差异，但又要强制推送可以使用 --force 参数
+
+##### git push origin --delete master
+
+删除远程主机分支可以使用 --delete 参数，以上命令表示删除 origin 主机的 master 分支： 
+
+
+
+
+
+##### git pull origin master:brantest
+
+git pull <远程主机名>  <远程分支名>:<本地分支名>
+
+将远程主机 origin 的 master 分支拉取过来，与本地的 brantest 分支合并 
+
+##### git pull origin master
+
+如果远程分支是与当前分支合并，则冒号后面的部分可以省略 
+
+
+
+
+
+##### git fetch origin
+
+获取远程origin仓库的所有branch的最新commit，并记录到.git/FETCH_HEAD文件
+
+##### git fetch origin master
+
+获取远程origin仓库的指定分支（此例是master）的最新commit，并记录到.git/FETCH_HEAD文件
+
+##### git fetch origin master:local_branch_name
+
+除了获取远端该分支（master）的最新commit，还在本地创建local_branch_name分支来保存其数据。
+
+git diff FETCH_HEAD
+
+
+
+##### git merge origin/branch
+
+将远程origin仓库中的任何更新合并到当前分支
+
+git pull 其实就是git fetch和git merge FETCH_HEAD两个命令的合并简化
+
+##### git fetch origin
+
+##### git reset --hard origin/master
+
+假如你想丢弃你在本地的所有改动与提交，可以到服务器上获取最新的版本历史，并将你本地主分支指向它：
+
+
+
+
+
+#####  git branch --set-upstream-to=origin/master  master  
+
+分支关联，指定本地分支master追踪到远端origin的分支master上，这时可以简化git pull和git push操作，无需再
+
+##### git branch -v
+
+##### git branch -vv
+
+可以查看关联分支之间的差别信息
+
+
+
+##### git push -u origin master
+
+如果第一次推送，加-u可以自动将本地master分支和远程master分支关联，相当于git branch --set-upstream-to命令。这种方式用于远程库没有分支时，先推送再关联。
 
 
 
 
 
 
+
+
+
+##### 实用小贴士
+
+内建的图形化 git：gitk
+
+彩色的 git 输出：git config color.ui true
+
+显示历史记录时，每个提交的信息只显示一行：git config format.pretty oneline
+
+交互式添加文件到暂存区：git add -i
