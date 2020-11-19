@@ -338,15 +338,15 @@ git pull <远程主机名>  <远程分支名>:<本地分支名>
 
 ##### git push origin master:master
 
-在查看区别后可决定add，commit，push三步曲。
+再查看区别后可决定add，commit，push三步曲。如果冲突，需要先pull下来合并。
 
 ##### git merge origin/branch
+
+##### git merge FETCH_HEAD（等同上面命令）
 
 将远程origin仓库中的任何更新合并到当前分支
 
 git pull 其实就是git fetch和git merge FETCH_HEAD两个命令的合并简化
-
-##### git fetch origin
 
 ##### git reset --hard origin/master
 
