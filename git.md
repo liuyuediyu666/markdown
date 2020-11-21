@@ -40,7 +40,21 @@ git clone git@github.com:account/repository
 
  -a --all：所有 
 
+##### 删除文件的正确姿势
 
+仅在文件夹中右键删除文件，再进行add,commit,push，并不会删除远端仓库对应文件。正确操作如下：
+
+第1步：git ls-tree HEAD：查看目前所有文件，包含右键删除的文件。
+
+第2步：git rm file：在工作区删除文件并提交到暂存区，相当于上面两步骤合并，rm+git add。
+
+第3步：git commit -m asdf：提交到分支。
+
+第4步：git push origin master:master：将删除操作同步到远程仓库。
+
+##### 显示文件列表
+
+git ls-tree HEAD
 
 ##### 当前节点的祖宗节点如下：
 
@@ -193,32 +207,6 @@ git clone git@github.com:account/repository
 使用`--mixed`参数与--soft的不同之处在于，--mixed修改了index，使其与第二个版本匹配。index中给定commit之后的修改被unstaged。 
 
 使用`--hard`同时也会修改working tree，也就是当前的工作目录，如果我们执行`git reset --hard HEAD~`，那么最后一次提交的修改，包括本地文件的修改都会被清楚，彻底还原到上一次提交的状态且无法找回。所以在执行`reset --hard`之前一定要小心。
-
-
-
-
-
-
-
-
-
-##### rm [file1 file2]
-
-此时可从暂存区恢复到工作目录，git checkout -- file
-
-从来没有被添加到版本库就被删除的文件，是无法恢复的！ 
-
-##### git add [file1 file2]
-
-此时可从最新版本恢复到暂存区，git reset HEAD file
-
-##### git rm [file1 file2]
-
-在工作区删除文件，并提交到暂存区，相当于上面两步骤合并，rm+git add
-
-##### git commit -m asdf
-
-最终从版本库删除文件
 
 
 
