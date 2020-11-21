@@ -2,6 +2,10 @@
 
 工作区(working tree)、暂存区(index或stage)、版本库、HEAD（游标）。暂存区属于版本库一部分。版本库在.git文件夹中。
 
+.git文件夹中的refs文件夹保存的是remote命令配置的远程库信息。
+
+.git文件夹中的FETCH_HEAD文件是git fetch命令保存的文件，未执行没有该文件。
+
 一页显示不完时：q退出，h进入帮助页面。
 
 一台机器只要生成一个密钥？
@@ -17,6 +21,26 @@ git clone git@github.com:account/repository
 第一种首次下载无需设置，可直接下载，但提交到远端时要进行设置
 
 第二种下载时就要设置，具体可能是（user.name,user.email,密钥，具体还要验证）以后提交到远端直接提交即可
+
+以上方式只能clone主分支，也就是master分支。clone其他分支见后面branch部分。
+
+##### git中一些选项解释
+
+-d --delete：删除
+
+-f --force：强制 
+
+-D --delete --force的快捷键
+
+-m --move：移动或重命名 
+
+-M --move --force的快捷键 
+
+-r --remote：远程
+
+ -a --all：所有 
+
+
 
 ##### 当前节点的祖宗节点如下：
 
@@ -38,9 +62,7 @@ git clone git@github.com:account/repository
 
 姥姥: HEAD^2^2
 
-
-
-
+# 先写远程部分，写其他。再写diff，再写reset
 
 
 
@@ -53,12 +75,6 @@ git clone git@github.com:account/repository
 ##### git help -g
 
 先大体熟悉有哪些命令
-
-
-
-##### git clone existsadress
-
-只能clone整个仓库
 
 
 
@@ -132,6 +148,16 @@ git clone git@github.com:account/repository
 
 
 
+##### git reflog
+
+记录每一次命令
+
+
+
+##### git reset HEAD [file1 file2]
+
+恢复暂存区与最新版本一致，将工作区的add操作取消。
+
 
 
 ##### git reset --hard HEAD^
@@ -144,7 +170,7 @@ git clone git@github.com:account/repository
 
 ##### --soft --mixed --hard。如果没有给出，则默认是--mixed
 
-##### 注意：git reset HEAD实际是git reset --mixed HEAD，即git reset HEAD与git reset HEAD^有重要区别。
+##### 注意：git reset HEAD^实际是git reset --mixed HEAD^的缩写，这与git reset HEAD有效大区别，前者是将分支回退一个版本，后者是恢复暂存区与最新版本一致。
 
 使用`--soft`参数将会仅仅重置`HEAD`到指定的版本，不会修改index和working tree 
 
@@ -155,16 +181,6 @@ git clone git@github.com:account/repository
 
 
 
-
-##### git reflog
-
-记录每一次命令
-
-
-
-##### git reset HEAD [file1 file2]
-
-恢复暂存区与最新版本一致，将工作区的add操作取消。
 
 
 
@@ -187,42 +203,6 @@ git clone git@github.com:account/repository
 ##### git commit -m asdf
 
 最终从版本库删除文件
-
-
-
-
-
-##### git branch
-
-##### git switch(checkout) dev
-
-##### git branch dev
-
-创建分支
-
-##### git switch -c dev(git checkout -b dev)
-
-创建并切换分支
-
-##### git branch -d dev
-
-删除分支
-
-##### git merge dev
-
-合并某分支到当前分支
-
-##### git diff master dev  [file1 file2]
-
- 以master分支为参照，比较dev分支和master分支之间的差异。 都是版本库的。
-
-#####  git diff fde17e9 4700e4a [file1 file2]
-
-用commit id来进行不同分支的比较效果同上，同时也能进行版本库中历史版本间的比较。
-
-
-
-
 
 
 
@@ -306,20 +286,6 @@ git push <远程主机名>  <本地分支名>:<远程分支名>
 
 
 
-##### git pull origin master:brantest
-
-git pull <远程主机名>  <远程分支名>:<本地分支名>
-
-将远程主机 origin 的 master 分支拉取过来，与本地的 brantest 分支合并 
-
-##### git pull origin master
-
-如果远程分支是与当前分支合并，则冒号后面的部分可以省略 
-
-
-
-
-
 ##### git fetch origin
 
 获取远程origin仓库的所有branch的最新commit，并记录到.git/FETCH_HEAD文件
@@ -331,6 +297,10 @@ git pull <远程主机名>  <远程分支名>:<本地分支名>
 ##### git fetch origin master:local_branch_name
 
 除了获取远端该分支（master）的最新commit，还在本地创建local_branch_name分支来保存其数据。
+
+##### git log -p FETCH_HEAD
+
+查看取回的FETCH_HEAD，是该branch在服务器上的最新状态，包括更新信息。 可以看到返回的信息包括更新的文件名，更新的作者和时间，以及更新的代码（19行红色[删除]和绿色[新增]部分）。  我们可以通过这些信息来判断是否产生冲突，以确定是否将更新merge到当前分支。  
 
 ##### git diff FETCH_HEAD
 
@@ -346,8 +316,6 @@ git pull <远程主机名>  <远程分支名>:<本地分支名>
 
 将远程origin仓库中的任何更新合并到当前分支
 
-git pull 其实就是git fetch和git merge FETCH_HEAD两个命令的合并简化
-
 ##### git reset --hard origin/master
 
 假如你想丢弃你在本地的所有改动与提交，可以到服务器上获取最新的版本历史，并将你本地主分支指向它：
@@ -356,21 +324,109 @@ git pull 其实就是git fetch和git merge FETCH_HEAD两个命令的合并简化
 
 
 
+##### git pull origin master:brantest
+
+git pull <远程主机名>  <远程分支名>:<本地分支名>
+
+将远程主机 origin 的 master 分支拉取过来，与本地的 brantest 分支合并 
+
+git pull 其实就是git fetch和git merge FETCH_HEAD两个命令的合并简化
+
+##### git pull origin master
+
+如果远程分支是与当前分支合并，则冒号后面的部分可以省略 
+
+
+
+
+
+
+
+
+
+##### git branch（git branch -l）
+
+查看本地所有分支
+
+##### git branch -r
+
+查看远程所有分支
+
+##### git branch -a 
+
+查看本地和远程的所有分支
+
+##### git branch dev
+
+创建分支
+
+##### git branch -d dev
+
+删除本地分支
+
+##### git branch -d -r dev
+
+删除远程分支，删除后还需推送到服务器，见下面一条
+
+##### git push origin:dev
+
+在上面一条删除后，这一步推送至服务器，此时服务器上的对应分支已删除
+
+##### git branch -m oldbranch newbranch
+
+重命名本地分支。如果重命名远程分支，首先要删除远程分支，再push本地新分支到远程。
+
+##### git switch(checkout) dev
+
+##### git switch -c dev(git checkout -b dev)
+
+创建并切换分支
+
+##### git branch dev_local origin/dev
+
+##### git switch(checkout) dev_local
+
+##### （git checkout -b dev_local origin/dev）
+
+clone远端origin的dev分支，并在本地取名dev_local，再切换到该分支。后面括号一步完成。
+
+##### git clone -b <指定分支名> <远程仓库地址> 
+
+clone的时候直接指定分支
+
+
+
 #####  git branch --set-upstream-to=origin/master  master  
 
-分支关联，指定本地分支master追踪到远端origin的分支master上，这时可以简化git pull和git push操作，无需再
-
-##### git branch -v
-
-##### git branch -vv
-
-可以查看关联分支之间的差别信息
-
-
+使本地分支master追踪到远端origin分支master上，当本地和远程分支名相同，可简写为git pull和git push。
 
 ##### git push -u origin master
 
 如果第一次推送，加-u可以自动将本地master分支和远程master分支关联，相当于git branch --set-upstream-to命令。这种方式用于远程库没有分支时，先推送再关联。
+
+##### git branch -v
+
+可以查看分支的最新commit信息
+
+##### git branch -vv
+
+除了最新commit信息，还可查看本地分支与远端分支的追踪详细信息。
+
+
+
+##### git merge dev
+
+合并某分支到当前分支
+
+##### git diff master dev  [file1 file2]
+
+ 以master分支为参照，比较dev分支和master分支之间的差异。 都是版本库的。
+
+#####  git diff fde17e9 4700e4a [file1 file2]
+
+用commit id来进行不同分支的比较效果同上，同时也能进行版本库中历史版本间的比较。
+
+
 
 
 
