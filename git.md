@@ -102,6 +102,22 @@ git clone git@github.com:account/repository
 
 参数分为全局和局部，可以用git config熟悉有哪些命令
 
+##### git config core.ignorecase
+
+简写，查询某配置
+
+##### git config user.name wanghlanother
+
+简写，更改某配置
+
+
+
+
+
+
+
+
+
 
 
 ##### git add .
