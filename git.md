@@ -10,6 +10,8 @@
 
 修改同一个文件也不一定冲突，只要两个修改隔了大概7行以上。7待确定。
 
+文档最后一行最好是空行，就是如果本行有内容则回车到下一行且没有内容。
+
 ##### clone时https与git区别
 
 git clone https://github.com/account/repository
