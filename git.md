@@ -1,4 +1,5 @@
 ### 扫盲
+test
 
 工作区(working tree)、暂存区(index或stage)、版本库、HEAD（游标）。暂存区属于版本库一部分。版本库在.git文件夹中。
 
