@@ -125,3 +125,15 @@ du -sh *
 ##### 关于nohup &的用法
 
 https://www.cnblogs.com/baby123/p/6477429.html
+
+
+
+which 查看可执行文件的位置。
+whereis 查看文件的位置。 
+locate  配合数据库查看文件位置。
+find  实际搜寻硬盘查询文件名称。
+
+# vim
+
+vim撤销一步 u
+

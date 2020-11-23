@@ -1006,6 +1006,14 @@ take advantage of 利用占便宜v
 
 
 
+（parse phrase）
+
+parse 语法分析v
+
+phrase 短语n
+
+
+
 (purple purpose)
 
 purple 紫色的adj紫色皇权n使变紫色vi
