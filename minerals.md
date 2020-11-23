@@ -30,7 +30,7 @@ graphviz：绘图软件，可视化图形网络。
 
 gephi：张冬分享绘图工具，可视化关系图。
 
-FileZilla：也是个FTP软件
+FileZilla：也是个FTP软件。
 
 EmEditor：文本编缉器，写代码好用。
 
