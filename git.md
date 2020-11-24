@@ -418,9 +418,9 @@ clone的时候直接指定分支
 
 
 
+参考知乎：git pull与git fetch区别
 
-
-
+https://zhuanlan.zhihu.com/p/123370920
 
 ##### 实用小贴士
 
