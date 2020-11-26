@@ -146,7 +146,13 @@ $ ssh-keygen -t rsa -C "youremail@example.com"
 
 
 
-##### git remote add origin 2818qq.com:wanghonglei/some.git
+##### git remote add origin 281831290atqq.com:wanghonglei/some.git
+
+这是giblab的方式
+
+##### git remote add origin gitatgithub.com:liuyuediyu666/some.git
+
+这是github的方式
 
 将一个已有的本地仓库与之关联，origin是远程库的名字，可自定义。后面可将本地仓库推送到远端。这种关联无论成功与否都不返回信息。
 
