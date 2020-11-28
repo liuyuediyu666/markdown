@@ -1,3 +1,13 @@
+##### python调用dos命令
+
+一种是os.system('python some.py')，另一种是subprocess库的popen函数。注意文件路径最好是绝对路径，相对路径会因环境变量问题导致错误。另外一定要给路径加上引号，否则会有可能报错。
+
+##### python调用shell命令常用4种方法，以及shell脚本使用Python脚本的参数。
+
+https://www.jb51.net/article/186301.htm
+
+一是os模块的system方法。二是os.popen()函数。三是commands模块。四是subprocess模块。
+
 
 
 
@@ -46,6 +56,10 @@ https://scikit-learn.org/stable/index.html
 ##### torch官方网站
 
 https://pytorch.org/
+
+##### keras官网
+
+https://keras.io/
 
 ##### mmdetection官方工程和文档
 
