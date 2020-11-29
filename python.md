@@ -10,14 +10,62 @@ https://www.jb51.net/article/186301.htm
 
 
 
+# python基础
+
+python是通过module组织代码的，每一个module就是一个.py文件，但是modules是通过package来组织的。
+
+package：是一个包含init.py的文件夹，里面可包含subpackage和module。在import这个包时，会执行一次init.py文件（重复import不会执行）。我们在导入一个包时，实际上是导入了它的init.py文件。这样我们可以在init.py文件中批量导入我们所需要的模块，而不再需要一个一个的导入。
+
+init.py：该文件包含了包的属性和方法。并告诉python这个文件夹是一个package。不建议在init中写python模块（可另外创建模块写），尽量保证init.py足够轻。
+
+all：init.py中的all是用来定义模糊导入中的*，比如all = ['pack1','pack2','fun1','cls1']，当from package import *时，会导入all中的包、函数、类等等。
+
+module：是package中的一个.py文件。init.py本身也是一个module，这个module的名子就是所在文件夹的名子（包名子）。
+
+当尝试from package import something时，import语句会首先检查something是不是init.py的变量。然后检查是不是subpackage，再检查是不是module，最后抛出ImportError。
+
+当执行import module时，解释器会根据下面的搜索路径，搜索module1.py文件。1) 当前工作目录。2) PYTHONPATH中的目录。3) Python安装目录 (/usr/local/lib/python)。事实上，模块搜索是在保存在sys.path这个全局变量中的目录列表中进行搜索。sys.path会在解释器开始执行时被初始化成包含上面3项的列表。
+
+当导入模块时，解释器按照sys.path列表中的目录顺序来查找导入文件（import sys，print（sys.path）可以看一下列表）
+
+常见的import形式
+
+```text
+import package
+import module
+from package import module/subpackage (as XXX)
+from package.subpackage import module/subpackage (as XXX)
+from module import function
+from package import *
+错误写法：import module.function
+```
+
+同一个main_package下的各个subpackage相互调用。如sub_package1中的module1.py想调用sub_package1的module2.py、sub_package1的module2.py中的function1函数和sub_package2的module2.py
+
+```text
+from . import module2.py
+from .module2.py import function1
+from ..sub_package2 import module2.py
+总结：“. ”是导入本package中的module，“.. ”是导入与package同级的packge中的module
+```
+
+if name == 'main'：只有在命令行运行时生效
+
+##### setuptools的使用，如何发布py包
+
+https://www.jianshu.com/p/ea9973091fdf
+
+##### pip机制待学习，帮助了解包的发布
 
 
-# 零碎知识点
 
-##### python 包 __init__ .py 作用 和 __all__方法  
 
-https://www.cnblogs.com/bigbox/p/12162558.html  
-https://www.php.cn/python-tutorials-420226.html  
+
+
+
+
+
+
 
 
 
