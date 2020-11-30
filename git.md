@@ -183,6 +183,15 @@ ssh-add -D
 
 主要是HostName和IdentityFile要改,HostName是服务器域名，IdentityFile 就是密钥的地址了
 
+如果不将sshkey配置到这个文件中，那么你虽然ssh -T -ai ~/.ssh/key可以测通，但是建立remote之后，当你push的话会报以下错误：
+
+$ git push orig master:master
+ERROR: Permission to liuyuediyu666/utils.git denied to Hayden-NJ.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
 ```
 Host github_1.com
 HostName github.com
