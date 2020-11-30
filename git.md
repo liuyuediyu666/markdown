@@ -118,21 +118,15 @@ git ls-tree HEAD
 
 
 
-### 远程仓库
+### ssh设置
 
-#####  ssh key设置
+##### 基本概念
 
-第1步：创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有`id_rsa`和`id_rsa.pub`这两个文件，如果已经有了，可直接跳到下一步。
+ssh设置是git全局设置，是远程仓库的基础。每个仓库建立remote都是在文件夹（仓库）层级上建立的，而ssh独立与个别仓库，他影响的是所有仓库。
 
-如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key： 
+SSH是建立在应用层和传输层基础上的安全协议。这是一种网络协议，用于计算机之间的加密登录。
 
-```
-$ ssh-keygen -t rsa -C "youremail@example.com"
-```
-
- 你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。 
-
- 如果一切顺利的话，可以在用户主目录里找到`.ssh`目录，里面有`id_rsa`和`id_rsa.pub`两个文件，这两个就是SSH Key的秘钥对，`id_rsa`是私钥，不能泄露出去，`id_rsa.pub`是公钥，可以放心地告诉任何人。 
+需要指出的是，SSH只是一种协议，存在多种实现，既有商业实现，也有开源实现。本文针对的实现是OPENSSH，此外，本文只讨论SSH在Linux Shell中的用法。如果要在Windows系统中使用SSH，会用到另一种软件[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty)，这需要另文介绍。
 
 加密传输：数据接收方创建公钥和私钥。公钥加密后的文件发出去，只有私钥可以解密。
 
@@ -140,11 +134,193 @@ $ ssh-keygen -t rsa -C "youremail@example.com"
 
 在这里用于确认上传代码人的身份，只有保存了公钥才能上传代码。
 
-第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴`id_rsa.pub`文件的内容
+##### 生成秘钥（此处的邮箱一定要填github账号的注册邮箱，绑哪个账号填哪个邮箱）
 
-第3步：在右上角找到“Create a new repo”按钮，创建一个新的仓库：在Repository name填入仓库名其他默认
+ssh-keygen -t rsa -C '281831290@qq.com' -f ~/.ssh/id_rsa_281831290
+
+这时一路回车，一般不要设置密码（否则以后每次都得输密码，麻烦）
+
+此时在~/.ssh/下有两个文件id_rsa_281831290和id_rsa_281831290.pub
+
+##### 登陆GitHub，打开“Account settings”，“SSH Keys”页面，添加id_rsa.pub（title任意）
+
+##### 验证私钥是否正常工作(-v是debug模式)
+
+ssh -T -ai ~/.ssh/id_rsa_281831290 git@github.com
+
+ssh -vT -ai ~/.ssh/id_rsa_281831290 git@github.com
+
+成功的话会返回：Hi XXX! You've successfully authenticated, but GitHub does not provide shell access.
+
+##### 建立远程仓库连接（注意这里就是个别仓库层面的设置了，需要init）
+
+git remote add origin 281831290@qq.com:wanghonglei/some.git
+
+##### 多个sshkey对应多个不同github账号（略复杂，需用到ssh-agent bash）
+
+多个github账号之间想共享公钥？这个就是github限制了。ssh key是用来辨别账号的，一般一个人只需要一个github账号而已，这个github账号若想直接参与另外一个github账号或组织的项目， 让那个项目把你加为成员即可。你还是用这一个github账号。一般不需要多个github账号。
+
+将新生成的密钥添加到SSH agent中（因为系统默认只读取id_rsa，为了让SSH识别新的私钥，需将其添加到SSH agent中）
+
+ssh-agent bash
+
+ssh-add ~/.ssh/id_rsa_1
+
+ssh-add ~/.ssh/id_rsa_2
+
+ssh-add ~/.ssh/id_rsa_3
+
+可以通过 ssh-add -l 来确私钥列表
+
+ssh-add -l
+ssh-add -L
+
+可以通过 ssh-add -D 来清空私钥列表
+
+ssh-add -D
+
+在~/.ssh/目录下进行config文件的配置(如果没有就新建一个,不用后缀名)
+
+主要是HostName和IdentityFile要改,HostName是服务器域名，IdentityFile 就是密钥的地址了
+
+```
+Host github_1.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_1
+
+Host github_2.com   (此处的host名是自己取的,你也可以自己改)
+HostName github.com	(gitlab的话写gitlab.com? //这里填你们公司的git网址即可)
+PreferredAuthentications publickey		
+IdentityFile ~/.ssh/id_rsa_2	(这是你的key的路径名)
+
+Host github_3.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_3
+```
+
+同样将不同的公钥添加到对应github账号的sshkey页面。
+
+然后测试一下（如果忘记sshkey绑的哪个账号，也可以这样测试找回来）
+
+ssh -T -ai ~/.ssh/id_rsa_1 git@github.com
+
+ssh -T -ai ~/.ssh/id_rsa_2 git@github.com
+
+ssh -T -ai ~/.ssh/id_rsa_3 git@github.com
+
+成功的话会分别返回对应的仓库名称：Hi XXX! You've successfully authenticated, but GitHub does not provide shell access.
+
+此时就可以使用git remote add origin git@github.com:name/some.git来关联不同账号的仓库了（因为你设置了config文件，git会自动根据github账号名和注册邮箱，来找到对应的sshkey）
+
+最后，可以为每个git仓库配置单独的用户名和邮箱，没有配置的则使用全局的用户名和邮箱。不设置也行，不影响使用，就是显示用户名和邮箱而已。
+
+git config user.name "yourname" 
+
+git config user.email "youremail"
+
+##### 验证密钥是否正常工作有时会提示（初次）：直接yes就可以。
+
+##### 第一次登录对方主机，也会出现这种提示（$ ssh user@host） 。
+
+ssh -T -ai ~/.ssh/id_rsa_1 git@github.com
+
+The authenticity of host 'host (12.18.429.21)' can't be established.
+
+RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.
+
+Are you sure you want to continue connecting (yes/no)? yes
+
+Warning: Permanently added 'host,12.18.429.21' (RSA) to the list of known hosts.
+
+##### 报错问题：github Key is already in use
+
+出现这个的原因是你在以前也用过GitHub, 并且提交了你的密钥. 这个时候你可以通过在命令行里输入:
+
+```
+ssh -T -i ~/.ssh/id_rsa git@github.com
+```
+
+来查看到底是哪一个账户在使用此密钥，会出现如下提示:
+
+```
+Hi <XXX>! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+就是这个XXX账号， 占用了当前sshkey, 登陆这个账号，删除掉sshkey就行了
+
+##### ~/.ssh/known_hosts文件的作用
+
+ssh会把你每个你访问过计算机的公钥(public key)都记录在~/.ssh/known_hosts。当下次访问相同计算机时，OpenSSH会核对公钥。如果公钥不同，OpenSSH会发出警告， 避免你受到DNS Hijack之类的攻击。我在上面列出的情况，就是这种情况。 
+
+原因：一台主机上有多个Linux系统，会经常切换，那么这些系统使用同一ip，登录过一次后就会把ssh信息记录在本地的~/.ssh/known_hsots文件中，切换该系统后再用ssh访问这台主机就会出现冲突警告，需要手动删除修改known_hsots里面的内容。 
+
+有以下两个解决方案： 
+\1. 手动删除修改known_hsots里面的内容； 
+\2. 修改配置文件“~/.ssh/config”，加上这两行，重启服务器。 
+  StrictHostKeyChecking no 
+  UserKnownHostsFile /dev/null 
+
+优缺点： 
+\1. 需要每次手动删除文件内容，一些自动化脚本的无法运行（在SSH登陆时失败），但是安全性高； 
+\2. SSH登陆时会忽略known_hsots的访问，但是安全性低；
+
+##### ssh登录远程主机时的入门教程：
+
+ssh user@host
+
+此时默认端口是22。
+
+ssh -p 2222 user@host
+
+这是手动指定端口2222
+
+如果你是第一次登录对方主机，系统会出现下面的提示： 
+
+$ ssh user@host
+
+The authenticity of host 'host (12.18.429.21)' can't be established.
+
+RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.
+
+Are you sure you want to continue connecting (yes/no)? yes
+
+Warning: Permanently added 'host,12.18.429.21' (RSA) to the list of known hosts.
+
+ssh-keygen -t rsa -C "你的注册邮箱” -f ~/.ssh/id_rsa
+
+生成秘钥：运行结束以后，在$HOME/.ssh/目录下，会新生成公钥和私钥：id_rsa.pub和id_rsa。
+
+ssh-copy-id user@host
+
+将公钥传送到远程主机host上面
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 远程仓库
 
 ##### git remote add origin 281831290atqq.com:wanghonglei/some.git
 
