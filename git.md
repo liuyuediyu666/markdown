@@ -6,8 +6,6 @@
 
 一页显示不完时：q退出，h进入帮助页面。
 
-一台机器只要生成一个密钥？
-
 修改同一个文件也不一定冲突，只要两个修改隔了大概7行以上。7待确定。
 
 文档最后一行最好是空行，就是如果本行有内容则回车到下一行且没有内容。
@@ -122,7 +120,7 @@ git ls-tree HEAD
 
 ##### 基本概念
 
-ssh设置是git全局设置，是远程仓库的基础。每个仓库建立remote都是在文件夹（仓库）层级上建立的，而ssh独立与个别仓库，他影响的是所有仓库。
+ssh设置是git全局设置，是远程仓库的基础。建立仓库及remote都是在文件夹（仓库）层级上建立的，而ssh独立于具体某个仓库，他影响的是所有仓库，他是本地git软件的全局配置。
 
 SSH是建立在应用层和传输层基础上的安全协议。这是一种网络协议，用于计算机之间的加密登录。
 
@@ -152,7 +150,7 @@ ssh -vT -ai ~/.ssh/id_rsa_281831290 git@github.com
 
 成功的话会返回：Hi XXX! You've successfully authenticated, but GitHub does not provide shell access.
 
-##### 建立远程仓库连接（注意这里就是个别仓库层面的设置了，需要init）
+##### 建立远程仓库连接（注意这里就是某个仓库层面的设置了，需要init）
 
 git remote add origin 281831290@qq.com:wanghonglei/some.git
 
@@ -162,7 +160,7 @@ git remote add origin 281831290@qq.com:wanghonglei/some.git
 
 将新生成的密钥添加到SSH agent中（因为系统默认只读取id_rsa，为了让SSH识别新的私钥，需将其添加到SSH agent中）
 
-ssh-agent bash
+ssh-agent bash（为了防止本地未启动ssh-agent，所以需要这一步）
 
 ssh-add ~/.ssh/id_rsa_1
 
@@ -183,7 +181,7 @@ ssh-add -D
 
 主要是HostName和IdentityFile要改,HostName是服务器域名，IdentityFile 就是密钥的地址了
 
-如果不将sshkey配置到这个文件中，那么你虽然ssh -T -ai ~/.ssh/key可以测通，但是建立remote之后，当你push的话会报以下错误：
+如果不将sshkey配置到这个文件中，那么你虽然ssh -T -ai ~/.ssh/key可以测通，但是建立remote之后，当你push的话会报以下错误（这表明这个key并没有被ssh-agent管理。）：
 
 $ git push orig master:master
 ERROR: Permission to liuyuediyu666/utils.git denied to Hayden-NJ.
@@ -211,7 +209,7 @@ IdentityFile ~/.ssh/id_rsa_3
 
 同样将不同的公钥添加到对应github账号的sshkey页面。
 
-然后测试一下（如果忘记sshkey绑的哪个账号，也可以这样测试找回来）
+然后测试一下（如果忘记sshkey绑的哪个账号，也可以通过这种方法找回来）
 
 ssh -T -ai ~/.ssh/id_rsa_1 git@github.com
 
@@ -311,15 +309,29 @@ ssh-copy-id user@host
 
 
 
+### 将本地一个仓库上传到github上的空仓库
 
+##### 新建本地仓库
 
+新建本地文件夹，将内容复制到该文件夹，并在该位置打开git，执行git init
 
+##### 关联sshkey
 
+这是git全局设置，将本地git软件与github上的账号进行sshkey关联，具体见上面内容。
 
+完成后可以用ssh -T -ai测一下通不通
 
+##### 建立远程空仓库
 
+登录对应的github账号，新建一个空仓库，做好命名。空仓库不能有任何内容（否则会冲突），不能有readme，gitignore，license等。
 
+##### 建立仓库间的远程连接
 
+在本地仓库的git bash中执行git remote add origin git@github.com:account/some.git
+
+##### 执行推送
+
+git push origin master:master
 
 
 
