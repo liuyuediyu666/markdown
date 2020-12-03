@@ -16,6 +16,8 @@ https://gcc.gnu.org/
 
 https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html
 
+~符号指代home目录（windows下默认就是**C盘/Users/用户名**）
+
 
 
 ### linux窗口操作相关
@@ -54,11 +56,43 @@ top有很多种用法。
 
 
 
+
+
 ##### 上传下载
 
 sz 文件名：将指定的文件下载到本地机器，会弹出窗口指定下载路径。
 
 rz -E：会弹出窗口，选择文件上传到远程机器。
+
+
+
+##### 压缩解压
+
+unzip test.zip 解压到当前目录
+
+unzip -n test.zip -d /tmp 解压到指定目录（-n表示不覆盖已存在的同名文件）。
+
+unzip -o test.zip -d /tmp 解压到指定目录（-n表示覆盖已存在的同名文件）。
+
+unzip -v test.zip 查看压缩文件目录，但不解压。
+
+分卷文件解压
+
+第一步合并文件 cat text.z* > testall.zip
+
+第二步解压：unzip testall.zip
+
+
+
+linux其他解压命令
+
+https://www.cnblogs.com/cxhfuujust/p/8193310.html
+
+
+
+
+
+
 
 
 
