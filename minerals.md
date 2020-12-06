@@ -72,6 +72,8 @@ PowerDesigner：数据库模型设计
 
 # 网站和
 
+目录生成网站非常好用：http://dir.yardtea.cc/
+
 回形针paperclip，B站墙裂的科普UP主
 
 吾爱破解：https://www.52pojie.cn/
