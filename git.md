@@ -24,9 +24,9 @@ git clone git@github.com:account/repository
 
 ##### git中一些选项解释
 
--d --delete：删除
-
 -f --force：强制 
+
+-d --delete：删除
 
 -D --delete --force的快捷键
 
@@ -303,7 +303,9 @@ ssh-copy-id user@host
 
 将公钥传送到远程主机host上面
 
+##### SSH 基本用法，公网，内网，代理，VPN
 
+https://zhuanlan.zhihu.com/p/21999778
 
 
 

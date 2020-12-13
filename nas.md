@@ -30,8 +30,6 @@ shr空间
 
 gen8
 
-豆瓣刮削
-
 反向代理
 
 vps
@@ -239,6 +237,11 @@ kodi播放器
 
 potplater
 
+### 刮削器
+
+https://blog.csdn.net/qq_20090265/article/details/109769288
+
+豆瓣刮削
 
 
 
@@ -253,3 +256,7 @@ potplater
 
 
 
+
+
+
+​      

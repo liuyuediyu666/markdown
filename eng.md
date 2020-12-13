@@ -1,3 +1,5 @@
+ETA是Estimated Time of Arrival的英文缩写，指 预计到达时间
+
 imperceptible perturbation 不可察觉的扰动
 
 semantic segmentation 语义分割
@@ -949,6 +951,20 @@ investigate 侦查调查v
 invite 邀请v请柬n
 
 invitation 邀请请柬n
+
+
+
+
+
+(object subject reject)
+
+object 物体对象目标n不同意反对v
+
+subject 主题题材问题学科n可能受...影响的adj使臣服v
+
+reject 拒绝接受拒收v次品不合格者n
+
+project 项目方案工程n规划计划投影v
 
 
 

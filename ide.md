@@ -1,4 +1,10 @@
-关于jpynb导出为md文件，一种是linux下执行命令（jupyter nbconvert --to md notebook.ipynb），一种是用jupyter notebook可以导出md
+##### 关于jpynb导出为md文件
+
+一种是linux下执行命令（jupyter nbconvert --to md notebook.ipynb），一种是用jupyter notebook可以导出md
+
+
+
+
 
 
 
@@ -12,12 +18,10 @@ F 查找替换
 Ctrl + F 在cell内搜索，或全局搜索  
 设置标题大小，数字键1-6  
 - 模式： Code-y MarkDown-m Raw-r
-- MarkDown：（- 项目符号）（___ 段落线）（分行 两个空格分行）（斜体 单星号括）（粗体 双星号括）（代码块 三间隔号括）
-
 - jupyter notebook配置默认启动路径  
-打开Anaconda Prompt，输入jupyter notebook --generate-config，获得jupyter_notebook_config.py文件的路径  
-打开jupyter_notebook_config.py文件，找到##The directory to use for notebooks and kernels.，设置c.NotebookApp.notebook_dir = '设置路径'  
-右击jupyter notebook图标，点击属性，找到目标（T），将路径最后的%USERPROFILE%删掉。
+  打开Anaconda Prompt，输入jupyter notebook --generate-config，获得jupyter_notebook_config.py文件的路径  
+  打开jupyter_notebook_config.py文件，找到##The directory to use for notebooks and kernels.，设置c.NotebookApp.notebook_dir = '设置路径'  
+  右击jupyter notebook图标，点击属性，找到目标（T），将路径最后的%USERPROFILE%删掉。
 
 - 编缉模式下  
 Ctrl  + Enter     运行当前Cell，选中当前Cell  
@@ -76,60 +80,6 @@ https://blog.csdn.net/Marybabana/article/details/88765581
 
 
 
-# win10
-
-- 桌面管理  
-win+逗号  #临时查看桌面  
-win+d  #打开桌面  
-win+ctrl+D  #新建桌面  
-win+ctrl+F4  #删除桌面  
-win+ctrl+左右  #切换桌面  
-- 窗口管理  
-win+shift+左右  #将窗口移到另一个监视器  
-win+上下左右   #最大最小化窗口，2分之一窗口，4分之一窗口  
-win+tab  #打开任务视图  
-alt+tab  #切换窗口  
-alt+F4  #关闭窗口  
-win+m  #最小化所有窗口  
-win+home  #最小化活动窗口以外的所有窗口  
-win+shift+m  #还原最小化所有窗口  
-- 任务栏操作  
-win+t  #任务栏循环   
-win+数字  #打开对应任务栏  
-win+shift+数字  #启动对应任务栏的固定程序   
-win+ctrl+shift+数字  #以管理员身份启动对应任务栏的固定程序  
-win+alt+数字  #打开对应任务栏的跳转列表  
-win+b  #移动光标到右下角托盘  
-- 设置  
-ctrl+alt+delete  #打开安全窗口  
-win+空格  #切换输入法好用  
-win+r  #调出快捷命令  
-win+i  #打开设置  
-win+x  #打开快捷链接菜单  
-win+p  #设置投影仪  
-- 资源管理器  
-win+e  #打开新窗口  
-点击文件+shitf多选文件（双击）  #打开多个文件  
-ctrl+w  #关闭当前窗口  
-ctrl+n  #复制打开当前窗口  
-alt+d  #地址栏  
-alt+2(ctrl+shift+n)  #新建文件夹  
-alt+1（alt+enter）  #打开属性对话框  
-alt + 双击图标，查看属性  
-alt+上  #查看上一级文件夹  
-alt+左右  #查看前后历史文件夹  
-home,end  #到窗口的顶端低端  
-ctrl+f  #搜索框  
-ctrl + alt + 2  #大图显示图标  
-ctrl + alt + 6  #详细信息显示  
-ctr+鼠标滚轮  #更改文件图标大小  
-alt+p  #显示预览面板
-- 其他  
-win+l  
-win+加减号和ESC  
-
-
-
 # chrome
 
 - 标签页和窗口
@@ -181,75 +131,3 @@ alt + space + n  #最小化当前窗口
 alt + space + x  #最大化当前窗口  
 f1  #帮助选项  
 ctrl+shift+m  #账户登录界面  
-
-
-
-# pycharm
-- ALT + SHIFT + E  
-在console中执行光标选中的命令，若未选中内容，则执行光标所在行的命令，光标自动跳到下一行。  
-- CTRL + SHIFT + M  
-MATCH BRACE  
-- CTRL + P  
-当光标位于函数括号内，快速显示函数参数  
-- SHIFT + ENTER  
-直接另起一行，无论光标在什么位置，直接另起一行  
-- CTRL + Q  
-当光标放到函数或实例上，这个操作能显示其所有可用的参数。  
-- CTRL + F（CTRL + R）  
-批量查找（批量替换）  
-- TAB（SHIFT + TAB）  
-批量缩进（批量反缩进）  
-- CTRL + C  
-如果未选择任何内容，此时CTRL + C会复制该行内容。  
-- CTRL + [或]（CTRL + SHIFT + [或]）  
-移动到代码块的结束或开始（选择代码块的结束或开始）
-- ALT + 左/右  
-切换标签页
-- CTRL + /  
-批量注释
-- SHIFT + 鼠标滚轮  
-横向滚屏  
-- ALT + SHIFT + 拖动鼠标  
-选择矩形文本  (等价，按住鼠标中键+拖动鼠标）  
-- SHIFT + DELETE  
-直接删除一行
-- CTRL + 加号  
-展开代码块
-- CTRL + 减号  
-收起代码块
-- CTRL + D  
-直接复制一行
-- 右键单击.py。可以复制路径，还可以用浏览器打开	
-- 左边栏查看structure	
-- 使用#  TODO  
-要做的事情，可以在TODO标签中直接跳转  
-- 断点设置个点，右键debug执行	
-- ctrl+shift+F10,执行命令  
-- shift+f9是debug  
-- ctrl+shift+F12，最大化编辑窗口  
-- 按住shift+上下键是滚屏，光标不动。  
-- alt+鼠标左建划取。是矩形选取并，方便复制缩进后的一段代码。  
-- Bookmark功能，在光标所在行建立书签。添加ctrl+F11，删除F11，查看所有shift+F11  
-- 右键点击想批量替换的变量,选择refactor,然后在窗口中输入新的并替换  
-- ctrl+f查找,然后选择regex项,就可以通过正则表达示查找想要的  
-- 选定一行，同时按下ctrl +shift ，通过上下键，可移动选下的行  
-- 其他  
-CTRL+Y          DELETE LINE  
-CTRL+DEL        DELETE TO WORD END  
-CTRL+BACKSPACE  DELETE TO WORD START  
-CTRL+SHIFT+J    JOIN LINES  
-CTRL+Q          帮助文档  
-CTRL+W          EXTEND SELECT  
-CTRL+SHIFT+W    SHRINK SELECT  
-- link  
-https://blog.csdn.net/gzmfxy/article/details/78700522  
-https://www.cnblogs.com/zhangpengshou/p/3555767.html  
-https://www.cnblogs.com/littleseven/p/5599019.html  
-
-
-
-# Excel
-
-- ctrl+f
-- ctrl+pgup/pgdown
-

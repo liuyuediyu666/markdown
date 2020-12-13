@@ -162,6 +162,8 @@ du -sh
 
 du -sh *
 
+wget命令
+
 ##### 关于nohup &的用法
 
 https://www.cnblogs.com/baby123/p/6477429.html
