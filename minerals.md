@@ -92,7 +92,9 @@ SCI-HUB丨文献与论文免费下，因遭封杀频繁换域名，百度下就�
 
 画流程图神器网站draw.io（鲍春晓推荐）
 
+鸟哥推荐，电脑硬件测评工具如cpu-z。https://www.cpuid.com/
 
+梯子（liyifan）：http://fnf.xyz/
 
 
 
