@@ -10,6 +10,10 @@ tradeoff  权衡协调n
 
 exception 一般情况以外的人(或事物)例外例外的事物n
 
+imply 含有...的意思暗示暗指必然包含v
+
+hint 暗示提示征兆n暗示透露v
+
 20200928
 
 
@@ -124,6 +128,8 @@ get rid of 丢弃摆脱
 
 as well as 也 又 既…又… 除…之外 此外 以及 
 
+likewise 同样地类似地也还亦且adv
+
 pass the time 打发时间
 
 up to this point 目前为止 
@@ -165,6 +171,16 @@ still on goint 进行中
 known issues 已知问题
 
 one size fits all 一刀切
+
+try 试图设法努力试验v尝试n
+
+trial 审讯审判试验n测试试用v
+
+experiment 实验实践n做试验进行实验v
+
+experimental 以实验为基础的实验性的adj
+
+
 
 
 
