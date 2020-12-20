@@ -10,6 +10,60 @@ File --> Settings -->Editor -->General --> Editor Tabs --> Tab limit 然后输�
 
 
 
+# pycharm远端调试
+
+### linux配置用户启动脚本
+
+​	vi ~/.bash_profile
+
+​	# 添加当前用户的启动配置,启动anaconda 环境
+
+​	source /home/workflow/conda/bin/activate jk
+
+### 配置pycharm远程调试
+
+以项目方式打开本地文件夹，然后进入File>>Settings，打开Settings窗口，左侧菜单列表进行下几个配置：
+
+##### （1）配置解释器（Project>>Project Interpreter）
+
+右侧窗口Project Interpreter框最右侧有个齿轮，点击齿轮选择Add（选择show all可打开列表，进行删除等操作），选择Add会弹出Add Python Interpreter窗口。
+
+在Add Python Interpreter窗口左侧列表选择SSH Interpreter。
+
+在右侧选Nwe server configuration， 配置服务器Host地址（172.16.2.119）、端口号Port（一般22）、用户名Username（可以用root）、密码password。
+
+注意：在右侧选Existing server configuration可在下拉列表中选择存在的服务器，必免上一步重复新建。
+
+填好点击Next进入下一步，
+
+interpreter框填写远程服务器上的解释器路径（~/conda/env/whl/bin/python）
+
+注意：路径不清楚的可以进入对应的conda环境执行which python获取，也可进入python用sys.executable查看
+
+sync folders框填写同步文件夹映射关系，本地到远端（project root到/tmp/project）（可以选择多个 ，但不知道有什么意义）
+
+其他根据需要勾选一下，点击finish结束配置
+
+注意：有时配置多个远程解释器会导致显示不出来package列表（也可能是重复配置远程解释器导致的），可以删掉重复的，或删掉所有重新来进行尝试。
+
+##### （2）远端部署（Build,Execution,Deployment>>Deployment）
+
+在左侧选择已存在的远程服务器，或者点加号新建。这里的列表会在上一步配置的时候更新，所以直接选吧。
+
+在选择的服务器对应右边窗口设置Connection和Mappings两个标签页。前者会在解释器配置的时候同步过来，后者要重新配置一下映射。 Mappings配置完以后，其实是相当于配置了一个ftp工具可以连接到服务器上，然后就可以直接在本地计算机查看到远程服务器上Deployment path on server “name”所指定路径下的文件了，并且它与你现在本地的工程目录Project root是连接的，可以实现互传功能。
+
+查看远程服务器上文件：Tools>>Deployment>>Browse Remote Host
+
+同步远端文件：Tools>>Deployment>>Upload to或Download from
+
+完成后点击Apply，就可以通过Run来测试代码啦！
+
+##### （3）配置控制台（Build,Execution,Deployment>>Console>>Python Console）
+
+右侧Python interpreter框的下拉列表选择已经存在的解释器，在第一步配置的解释器会加到此列表。
+
+
+
 
 
 # 快捷键

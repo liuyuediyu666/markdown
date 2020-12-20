@@ -77,17 +77,9 @@ https://github.com/ehang-io/nps
 
 https://www.zhihu.com/topic/20088499/hot
 
-### 梯子
 
-朱珊珊推荐发条云翻墙：注册邮箱281831290@qq.com。密码xianjian2
 
-蓝灯
 
-vpn：expressvpn叶梦贤在用的。
-
-github上一个开源的：XX-Net。
-
-https://github.com/XX-net/XX-Net
 
 ### 路由方案参考
 
