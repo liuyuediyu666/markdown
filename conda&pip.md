@@ -4,6 +4,46 @@ conda create -n open-mmlab python=3.7 -y
 
 anaconda原理，文件结构，安装包位置，主要命令
 
+
+
+# conda源的管理
+
+查看目前的源
+
+conda config --show channels
+
+清除源，恢复默认
+
+conda config --remove-key channels
+
+添加源
+
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/ 
+
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/ 
+
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/ 
+
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/ 
+
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/ 
+
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/
+
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 
+
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge  
+
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+
+
+
+### 一个问题处理技巧，未验证。
+
+如果出现conda uninstall失败的情况，可以直接在site-packages目录下，将该包的安装目录及其对应的distinfo或egginfo目录直接删除，也可达到卸载包的效果。
+
+
+
 # conda
 
 conda # 可以输出常用命令
@@ -58,4 +98,14 @@ vim ~/.pip/pip.config  # 这是pip配置文件
 pip install pk -i https://pypi.tuna.tsinghua.edu.cn/simple --default-time=100
 
 pip install --upgrade pk --ignore-installed pk
+
+
+
+### pip安装包与conda环境，具体细节待研究。
+
+pip -V可以查看当前pip版本的pip路径。如果路径与当前激活的conda环境不一致，会导致pip安装过的包不在当前conda环境中，也就不能使用。这时可以deactivate和activate重新激活一下conda环境。再使用pip -V查看pip所属环境应该就正常了。
+
+
+
+
 

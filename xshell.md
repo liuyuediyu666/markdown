@@ -10,3 +10,13 @@ Ctrl+D：退出
 
 type 'help' to learn how to use xshell prompt
 
+
+
+
+
+Ctrl +s 在Xshell终端上是屏幕锁死
+
+Ctrl+q 退出锁死
+
+
+

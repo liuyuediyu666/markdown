@@ -1,3 +1,7 @@
+clause 从句分名子句（程序中的子语句）
+
+authenticity can't be established 真实性无法确定
+
 ETA是Estimated Time of Arrival的英文缩写，指 预计到达时间
 
 imperceptible perturbation 不可察觉的扰动
@@ -207,6 +211,18 @@ aboard 在船上在飞机上在火车上等adv/prep
 accident 意外事故n
 
 incident 事件摩擦冲突n
+
+
+
+
+
+(achieve archive)
+
+achieve 达到完成成功v
+
+achiever 成功的人有成就的人n
+
+archive 档案n把...存档v
 
 
 
@@ -838,11 +854,7 @@ exercise 活动锻炼n行使使用锻练v
 
 
 
-(explore explode expert experience expensive exclusive)
-
-explore 探索v
-
-explode 爆炸v
+(expert experience expensive exclusive)
 
 expert 专家n熟练的adj
 
@@ -855,6 +867,28 @@ exclusive 专用的adj独家新闻n
 exclusively 排他地独占地adv
 
 inclusive 包含全部费用的，包括提到的所有的天数（或月，数目等）在内的，包容广阔的
+
+
+
+
+
+(explode exploit exploitee explore explorer)
+
+explode 爆发激增vi爆炸vt
+
+exploit 剥削开采榨取vt
+
+exploitee 被剥削者被榨取者n
+
+explore 勘查探究调查vi
+
+explorer 探险家
+
+explor 探索调查abbr.exploration
+
+explo 爆炸abbr.explosion
+
+between the exploration and exploitation 在探索与开发之间
 
 
 

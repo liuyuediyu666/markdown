@@ -1,4 +1,30 @@
-上海交通大学 计算机应用技术硕士
+# 最新收集：
+
+mljar-supervise：一个自动化机器学习库。
+
+
+
+
+
+# python项目官网
+
+autokeras：https://autokeras.com/
+
+微软nni：https://github.com/microsoft/nni
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 上海交通大学 计算机应用技术硕士
 
 28 人赞同了该回答
 

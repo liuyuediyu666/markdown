@@ -8,6 +8,18 @@ https://www.jb51.net/article/186301.htm
 
 一是os模块的system方法。二是os.popen()函数。三是commands模块。四是subprocess模块。
 
+##### python获取自己位置的几种方法
+
+进入python，可使用sys.executable
+
+在linux下激活某conda环境，用which python可找到该环境python位置。
+
+
+
+
+
+
+
 
 
 # python基础

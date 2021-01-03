@@ -20,6 +20,8 @@ https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html
 
 
 
+
+
 ### linux窗口操作相关
 
 clear
@@ -54,6 +56,34 @@ tailf
 
 top有很多种用法。
 
+##### file
+
+file + 文件或文件夹，可返回文件类型相关信息。
+
+##### free
+
+查看内存使用情况
+
+##### source ~/.bashrc
+
+很常用
+
+##### watch -n 1 nvidia-smi（这是一个命令组合）
+
+watch -n 1 -d 是每隔一秒查看一次某命令的执行结果 -d是高亮显示有变化的项。
+
+nvidia-smi就是查看显卡状态。
+
+##### 窗口滚动
+
+linux执行命令时，用滚轮翻页会不停跳到当前行更新内容，用[shift] + pageup可解决
+
+##### tail
+
+tail -f 文件名，监视文件的最后内容更新。
+
+
+
 
 
 
@@ -62,7 +92,7 @@ top有很多种用法。
 
 sz 文件名：将指定的文件下载到本地机器，会弹出窗口指定下载路径。
 
-rz -E：会弹出窗口，选择文件上传到远程机器。
+rz -E：会弹出窗口，选择文件上传到远程机器。直接拖到xshell也有同样效果。
 
 
 
@@ -179,3 +209,64 @@ find  实际搜寻硬盘查询文件名称。
 
 vim撤销一步 u
 
+
+
+
+
+# 鸟哥私房菜整理
+
+linux
+
+su然后输入密码，目录不变。
+
+su - 然后输入密码，目录切换到/root。
+
+linux系统的所有账号保存在/etc/passwd文件中
+
+~/.bash_history记录着bash的历史命令
+
+HISTSIZE可以设定历史记录数量
+
+ll /root/*abc* ，支持通配符。
+
+man 指令，调出帮助文档
+
+type 指令，查类型，对于非内置指令，还能查到目录位置，相当于which功能
+
+ctrl+u、k、a、e。光标操作
+
+echo ${变量名}
+
+环境变量：PATH,HOME,MAIL,SHELL
+
+扩增变量：PATH=${PATH}:/home/bin
+
+在子程序使用变量（升级为环境变量）：export PATH
+
+取消变量：unset 变量名
+
+查环境变量：env或export
+
+查所有变量：set
+
+declare 
+
+echo ${$}：$代表目前这个shell的线程代号，即PID。
+
+echo${?}：上一个指令回传值。
+
+ll | more：一页一页看。
+
+ll | less
+
+ll | head
+
+ll | tail
+
+alias查看所有别名。
+
+type -a ls，查看指令的搜索顺序。
+
+source也可用.来代替
+
+last 查看linux的用户登录记录。
