@@ -6,6 +6,12 @@ anaconda原理，文件结构，安装包位置，主要命令
 
 
 
+启动conda环境的同时，激活其中一个环境。
+
+source /home/workflow/conda/bin/activate 环境名称
+
+
+
 # conda源的管理
 
 查看目前的源

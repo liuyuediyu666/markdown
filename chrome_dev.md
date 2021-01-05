@@ -2,7 +2,7 @@
 
 ctrl+e  # 在地址栏使用默认搜索，比如百度
 
-ctrl+d  # 转到地址栏输入
+alt+d  # 转到地址栏输入。在ctrl+e的情况下，alt+d无效，这时只需要esc就可以了。
 
 - 标签页和窗口
   space(shift+space)  #上下翻页  

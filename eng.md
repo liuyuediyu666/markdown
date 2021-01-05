@@ -2,6 +2,8 @@ clause 从句分名子句（程序中的子语句）
 
 authenticity can't be established 真实性无法确定
 
+authentication 身份验证鉴定
+
 ETA是Estimated Time of Arrival的英文缩写，指 预计到达时间
 
 imperceptible perturbation 不可察觉的扰动
