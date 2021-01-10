@@ -20,6 +20,14 @@ https://blog.csdn.net/zhong_ling/article/details/78223062
 
 
 
+##### 计时器
+
+开始菜单中搜索闹钟，该程序在控制面版中有。
+
+
+
+
+
 ### 快捷键
 
 ##### 桌面管理  

@@ -4,6 +4,16 @@ ctrl+e  # 在地址栏使用默认搜索，比如百度
 
 alt+d  # 转到地址栏输入。在ctrl+e的情况下，alt+d无效，这时只需要esc就可以了。
 
+
+
+ctrl+s保存文件
+
+ctrl+o打开文件
+
+
+
+
+
 - 标签页和窗口
   space(shift+space)  #上下翻页  
   Ctrl + n  #打开新窗口  

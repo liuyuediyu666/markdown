@@ -1,67 +1,163 @@
-ipython官网，里面有jupyter相关文档。
+# 官方文档
+
+jupyter
+
+https://github.com/jupyter/jupyter
+
+https://jupyter.org/
+
+org中的documentation
+
+https://jupyterlab.readthedocs.io/en/stable/index.html
+
+https://jupyter-notebook.readthedocs.io/en/stable/index.html
+
+ipython
+
+https://ipython.org/
 
 https://ipython.readthedocs.io/en/stable/index.html#
 
-### 显示帮助信息
+##### 显示帮助信息
 
-``````
+```
 jupyter
 jupyter -h
 jupyter notebook --help
 jupyter notebook --help-all
 jupyter kernel --help-all
-
 jupyter --version
-jupyter notebook list
-``````
+```
 
-### 在conda环境中安装jupyter kernel，这样就可以在jupyter中使用这个环境了。还可以有个图标放在launcher页面。
+
+
+# jpynb导出为md文件
+
+一种是linux下执行命令（jupyter nbconvert --to md notebook.ipynb），一种是用jupyter notebook可以导出md
+
+# jupyter远程访问
+
+### 参考资料，待学习
+
+https://zhuanlan.zhihu.com/p/166425946
+
+### 生成密码保存备用
+
+from notebook.auth import passwd 
+
+passwd() （下面密码是12345）
+
+'argon2:$argon2id$v=19$m=10240,t=10,p=8$fHzsipzyiQN1HpHaNAApxg$xYa76axEUgfMEw7sLMo1wg'
+
+### 安装（目前是root登录且base环境安装的。是否需要root登录？以及是否需要base环境安装？待研究。）
+
+pip install jupyter（这个安装的是jupyter notebook）
+
+pip install jupyterlab (没有空格，不是jupyter lab，否则安装的是另外两个包jupyter和lab)
+
+如果不安装jupyterlab，则只能使用notebook远程访问，不能使用lab远程访问
+
+### 参数配置
+
+##### 生成及保存的位置
+
+jupyter notebook --generate-config（ ~/.jupyter/jupyter_notebook_config.py ）
+
+jupyter lab --generate-config（ ~/.jupyter/jupyter_lab_config.py ）
+
+虽然使用jupyter lab --generate-config生成的配置文件是jupyter_lab_config.py，但实际jupyter lab启动服务的时候，使用的是jupyter_notebook_config.py这个配置文件。所以jupyter_lab_config.py文件似乎并没什么用。
+
+##### 配置文件解读
 
 ```
+c.NotebookApp.allow_remote_access = True  # 允许外部访问，默认值False
+c.NotebookApp.allow_root = True  # 允许使用root用户启动服务，这样启动时就不用加 --allow-root了。
+c.NotebookApp.ip = '*'  # 等号右边的‘localhost’（仅仅运行本地访问），修改为‘*’，表示允许所有IP皆可访问。官方文档建议修改成‘*’，但可能还是无法访问，可以修改成'0.0.0.0'或'0.0.0.1'或者服务器IP。
+c.NotebookApp.notebook_dir = "/"  # 指定默认的启动路径，否则会在当前路径下启动。
+c.NotebookApp.open_browser = False  # 禁止自动打开浏览器（因为服务器上就没有浏览器）
+c.NotebookApp.password = "sha1:0d46e59c26c6:caab7b48941bee0095bdcf0747cd2a5a22a27581"  # 设置密码
+c.NotebookApp.port = 7788  # 设置固定的notebook服务监听的IP端口，保证不和其他已经启用的端口号冲突。
+c.NotebookApp.default_url = '/lab'  # 设置启动方式('/tree'或'/lab')，使用'/lab'的前提要安装jupyterlab。
+```
+
+```
+# 这是jupyter_lab_config.py的配置，目前没什么用。jupyter lab启动也不用。
+c.ServerApp.allow_remote_access = True
+c.ServerApp.ip='*'
+c.ServerApp.root_dir = "/home/whl/jupyterlab/"
+c.ServerApp.open_browser = False
+c.ServerApp.port = 7788
+c.ServerApp.password = "sha1:0d46e59c26c6:caab7b48941bee0095bdcf0747cd2a5a22a27581" 
+```
+
+
+
+### 启动（最好在base环境下启动，其他环境下启动的影响未测试。）
+
+##### 启动时的参数，可以覆盖配置文件中的参数
+
+jupyter notebook --allow-root --ip 0.0.0.0 --config jupyter_notebook_config_2.py --notebook-dir /your_path
+
+nohup jupyter lab  &
+
+##### 启动时到底是notebook还是lab？
+
+当配置文件中未设置c.NotebookApp.default_url = '/lab' 时，默认的就是'/tree'，jupyter notebook启动的是notebook，jupyter lab启动的是lab。
+
+当配置文件中设置c.NotebookApp.default_url = '/lab'时，jupyter notebook和jupyter lab均启动的是lab。
+
+当然，在远程浏览器访问时，输入的url也可以控制，也就是http://172.16.2.119:8888/lab和http://172.16.2.119:8877/tree的区别。不用在意是用jupyter notebook还是用jupyter lab启动的，都一样的效果。
+
+##### 查看正在run的服务
+
+jupyter notebook list
+
+##### 后台运行
+
+nohup jupyter notebook &
+
+
+
+
+
+# kernel设置
+
+##### 将conda的某个环境加入到jupyter的launcher页面（还可以设置launcher图标）
+
+```
+jupyter kernelspec list  # 前题要启动conda环境，并且该环境下安装了ipykernel（无需安装jupyter）。则可查看目前已有的kernel。在任何环境中都可查到所有环境的kernel。但是注意，非root用户查不到root用户安装的kernel。
 conda activate 环境名  # 激活将要安装jupyter kernel的环境
 pip install ipykernel  # 安装jupyter kernel
 python -m ipykernel install --name 环境名 --display-name 显示名  # 显示名称可选，是在jupyter的launcher中显示的名称
 ```
 
-### 显示可用的jupyter kernels
 
-``````
-jupyter kernelspec list
-``````
 
-### jupyter配置文件：设置默认的启动路径和启动方式lab或notebook
+# 网上关 于放行Linux防火墙的端口，未研究，与linux有关。
 
-``````
-jupyter notebook --generate-config  # 若没有jupyter_notebook_config.py则会生成，若有则用默认值覆盖（询问确认的时候会显示该文件的路径）
-``````
+截止到第（3）步，Jupyter Notebook的设置已经接近尾声。
 
-路径设置：修改以上文件中的c.NotebookApp.notebook_dir = '我想要的路径'。
+但工作还没有做完。虽然我们开启了访问的端口，但Jupyter Notebook毕竟仅是Linux的一个应用程序，仅仅是它许可开放某个端口，这还不够。
 
-启动方式设置：修改以上文件中的c.NotebookApp.default_url = '/lab'，如果改回以notebook启动，则使用'/tree'替换'/lab'。
+Linux还得有个“外交部”——防火墙，只有它许可开放，那才是真的开放。
 
-### 在服务器上启动jupyter
+因此，下面的工作就是设置防火墙的端口开放。倘若开放某个端口（如9999），使用如下命令
 
-用whl账号登录linux服务器，在conda的base环境下，cd到/home/whl目录下，执行下列命令。  
+> jpnb@centos-7 .jupyter]$ **sudo firewall-cmd --zone=public --add-port=9999/tcp --permanent**
+> [sudo] jpnb 的密码：****
+> Success
 
-jupyter lab --ip 0.0.0.0 --port 8888 （在xshell中启动，xshell断掉就停了）  
+如果我们开放的不是9999，则修改上述端口号即可。
 
-nohup jupyter lab --ip 0.0.0.0 --port 8888 & （后台启动，不会受到xsell关闭的影响）  
+同样，有了新设置，我们还需要重新启动防火墙，使之生效。使用下面的命令，即可达到重启防火墙的功效：
 
-### 关于jpynb导出为md文件
-
-一种是linux下执行命令（jupyter nbconvert --to md notebook.ipynb），一种是用jupyter notebook可以导出md
+> [jpnb@centos-7 .jupyter]$ **sudo systemctl restart firewalld**
 
 
 
 
 
-
-
-
-
-
-
-# jupyter
+# jupyter操作
 
 - 非编辑模式下：  
   B 向下新建 A 向上新建   
@@ -132,5 +228,3 @@ nohup jupyter lab --ip 0.0.0.0 --port 8888 & （后台启动，不会受到xsell
   https://blog.csdn.net/Marybabana/article/details/88765581  
 
 
-
-- 

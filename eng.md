@@ -302,6 +302,16 @@ oral 口头的口服的adj口试n
 
 
 
+(breeze freeze)
+
+breeze 微风轻而易举的事n轻盈而自信的走v
+
+freeze 冻结停止n冻结结冰v
+
+
+
+
+
 (character)
 
 character 品质性格特点n刻vt
