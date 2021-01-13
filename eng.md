@@ -1,4 +1,4 @@
-clause 从句分名子句（程序中的子语句）
+clause 从句分句子句（程序中的子语句）
 
 authenticity can't be established 真实性无法确定
 
