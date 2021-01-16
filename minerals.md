@@ -78,6 +78,8 @@ PowerDesigner：数据库模型设计
 
 吾爱破解：https://www.52pojie.cn/
 
+云片：自动发送短信通知的网站。https://www.yunpian.com/
+
 鸠摩搜索，专业找书和文档：https://www.jiumodiary.com/
 
 SCI-HUB丨文献与论文免费下，因遭封杀频繁换域名，百度下就可以。https://sci-hub.shop/

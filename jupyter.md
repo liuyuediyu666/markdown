@@ -35,6 +35,24 @@ jupyter --version
 
 一种是linux下执行命令（jupyter nbconvert --to md notebook.ipynb），一种是用jupyter notebook可以导出md
 
+
+
+# jupyter notebook主题更换（对lab无效）
+
+pip install jupyterthemes
+
+jt -l  # 查看主题列表
+
+jt -t chesterish  # 转换主题
+
+jt -r  # 恢复原始主题
+
+
+
+
+
+
+
 # jupyter远程访问
 
 ### 参考资料，待学习
@@ -94,6 +112,8 @@ c.ServerApp.password = "sha1:0d46e59c26c6:caab7b48941bee0095bdcf0747cd2a5a22a275
 
 ### 启动（最好在base环境下启动，其他环境下启动的影响未测试。）
 
+linux系统中，某用户通过jupyter notebook创建的远程服务，其他用户使用jupyter notebook list是查不到的，即使root用户也无法查看到其他普通用户启动的jupyter notebook服务。所以要注意linux系统的登录用户是谁，然后再启动。
+
 ##### 启动时的参数，可以覆盖配置文件中的参数
 
 jupyter notebook --allow-root --ip 0.0.0.0 --config jupyter_notebook_config_2.py --notebook-dir /your_path
@@ -108,13 +128,23 @@ nohup jupyter lab  &
 
 当然，在远程浏览器访问时，输入的url也可以控制，也就是http://172.16.2.119:8888/lab和http://172.16.2.119:8877/tree的区别。不用在意是用jupyter notebook还是用jupyter lab启动的，都一样的效果。
 
-##### 查看正在run的服务
+##### 查看正在run的服务(看有几个后台任务)
 
 jupyter notebook list
+
+Jupyter notebook stop someport  # 通过端口号关闭后台任务目前不起作用。仍使用kill -9 PID
 
 ##### 后台运行
 
 nohup jupyter notebook &
+
+##### 报错500处理
+
+使用远程浏览器登录报错：Jupyter: 500 internal server error
+
+这是由于ipython或者jupyter notebook某些包与Python版本不兼容的问题, 全更新了就好.
+
+pip install -upgrade "ipython[all]"  # 注意引号和方括号都得有
 
 
 

@@ -346,13 +346,17 @@ https://blog.csdn.net/qq_35078688/article/details/83279629
 https://www.bilibili.com/video/BV1NJ411L7ko
 https://www.bilibili.com/video/BV1Vx411W7eE
 
-# 课程
 
-数学公式。刘建平的白板推导。
 
-吴恩达的机器学习（已下载）。
 
-逻辑回归评分卡案例
-http://edu.cda.cn/my/course/982
-https://zhuanlan.zhihu.com/p/44400966
+
+# 其他
+
+https://news.ycombinator.com/news
+
+https://www.reddit.com/
+
+
+
+
 

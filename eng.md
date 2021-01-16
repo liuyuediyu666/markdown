@@ -1084,7 +1084,17 @@ take advantage of 利用占便宜v
 
 
 
-（parse phrase）
+(model module)
+
+model 模型模特儿n
+
+module 模块组件n
+
+
+
+
+
+(parse phrase)
 
 parse 语法分析v
 

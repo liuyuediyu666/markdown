@@ -6,11 +6,44 @@ mljar-supervise：一个自动化机器学习库。
 
 
 
-# python项目官网
+# reference
 
-autokeras：https://autokeras.com/
+python官方文档（中英文）：https://docs.python.org/3.7/ ；https://docs.python.org/zh-cn/3.7/  
 
-微软nni：https://github.com/microsoft/nni
+python官方文档（标准库）：https://docs.python.org/zh-cn/3/library/
+
+这个也是python官方文档？：http://www.pythondoc.com/pythontutorial3/index.html
+
+python源代码的github仓库：https://github.com/python/cpython  
+
+### module官方文档
+
+autokeras（org）：https://autokeras.com/
+
+微软nni（git）：https://github.com/microsoft/nni
+
+requests（docs）：https://requests.readthedocs.io/zh_CN/latest/
+
+torch（org）：https://pytorch.org/
+
+keras（org）：https://keras.io/
+
+mmdetection（git）：https://github.com/open-mmlab/mmdetection/  
+
+mmdetection（docs）：https://mmdetection.readthedocs.io/en/latest/  
+
+mmcv（git）：https://github.com/open-mmlab/mmcv
+
+mmcv（docs）：http://mmcv.readthedocs.io/en/latest
+
+
+ jieba（git）：https://github.com/fxsjy/jieba
+
+sklearn（org）：https://scikit-learn.org/stable/index.html
+
+
+
+##### 
 
 
 
@@ -19,6 +52,54 @@ autokeras：https://autokeras.com/
 
 
 
+
+
+
+
+
+### 其他官方文档
+
+git：https://git-scm.com/book/en/v2
+
+
+
+
+
+### 大佬分享
+
+##### git和停用词（个人教程goto456）
+
+https://github.com/goto456  
+https://github.com/goto456/stopwords  
+https://github.com/goto456/simple-git  
+
+##### 廖雪峰github
+
+https://github.com/michaelliao
+
+##### CSDN一个博主，python方面文章全面
+
+https://blog.csdn.net/brucewong0516
+
+##### 优秀答主：numpy实现神经网络系列。其他课程也很好。
+
+https://zhuanlan.zhihu.com/p/67716530
+
+##### numpy实现反向传播
+
+https://zhuanlan.zhihu.com/p/144315018
+
+
+
+
+
+
+
+
+
+# 上百个机器学习库汇总
+
+https://github.com/ml-tooling/best-of-ml-python#graph-data
 
 
 

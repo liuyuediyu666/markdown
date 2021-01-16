@@ -1,3 +1,5 @@
+conda文档：https://docs.conda.io/en/latest/
+
 创建环境的命令参数需了解一下
 
 conda create -n open-mmlab python=3.7 -y
@@ -9,6 +11,12 @@ anaconda原理，文件结构，安装包位置，主要命令
 启动conda环境的同时，激活其中一个环境。
 
 source /home/workflow/conda/bin/activate 环境名称
+
+
+
+##### 关于如何直接拷贝移植conda环境
+
+https://blog.csdn.net/qq_41554005/article/details/89052435
 
 
 
@@ -104,6 +112,10 @@ vim ~/.pip/pip.config  # 这是pip配置文件
 pip install pk -i https://pypi.tuna.tsinghua.edu.cn/simple --default-time=100
 
 pip install --upgrade pk --ignore-installed pk
+
+
+
+pip show autokeras  # 显示包信息
 
 
 
