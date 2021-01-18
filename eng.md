@@ -1,3 +1,11 @@
+differentiate 求导或求微分
+
+differentiation 微分
+
+derivative 导数
+
+nested functions 嵌套函数
+
 clause 从句分句子句（程序中的子语句）
 
 authenticity can't be established 真实性无法确定
