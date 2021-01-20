@@ -1,3 +1,7 @@
+paradigm 典范范例样式n
+
+massive 大规模的大块的大量的adj
+
 differentiate 求导或求微分
 
 differentiation 微分
@@ -61,6 +65,8 @@ despite 即使尽管prep
 
 
 
+
+kick off 开始开球v
 
 ahead of time 提前
 
@@ -195,6 +201,26 @@ experiment 实验实践n做试验进行实验v
 experimental 以实验为基础的实验性的adj
 
 
+
+
+
+(original primitive raw)
+
+original 原来的起初的首创的独创的真迹的非复制的原作的adj原件原稿原作正本怪人n
+
+primitive 原始的远古的发展水平低的落后的人类或动物早期的adj文艺复兴前的艺术家n
+
+raw 生的未煮的未加工的自然状态的未经分析的adj擦伤处n
+
+
+
+
+
+(recursion secure)
+
+recursion 递归
+
+secure 安心的有把握的可靠的安全的adj取得实现扣紧关严保卫v
 
 
 
