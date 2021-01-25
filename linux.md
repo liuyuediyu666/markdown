@@ -28,9 +28,17 @@ man command
 
 # BASH(bourne again shell)
 
-~/.bash_history记录着bash的历史命令
+man bash 包含很多内键的指令说明，如man cd。
 
-linux环境变量设置是下面的文件/etc/profile
+~/.bash_history  # 记录着bash的历史命令
+
+/etc/shells  # 该文件注册记录可用的shell
+
+/etc/passwd  # 每个账号对应哪种shell
+
+/lib/modules/$(uname -r)/kernel  # linux核心模块所在目录
+
+/etc/profile  # linux环境变量配置文件
 
 空格+反斜杠(用在指令尾表示换行)
 
@@ -44,17 +52,19 @@ ctrl+d(输入结束(EOF)，可用于退出程序)。
 
 ctrl+m(等于enter)。
 
-### env(显示环境变量)
+### alias
 
-HISTSIZE这个变量可以设定历史记录数量
+alias(查看所有别名)。
+
+alias lm='ls -al'
 
 
 
 ### clear(清屏)
 
-### 别名与历史命令
 
-alias(查看所有别名)。
+
+### history
 
 history 3
 
@@ -75,6 +85,68 @@ source ~/.bashrc
 source /home/whl/conda/bin/activate
 
 source 变量文件  # 激活该环境变量
+
+
+
+
+
+# BASH变量(环境变量PATH,HOME,MAIL,SHELL)
+
+bash环境中的数值运算仅能达到整数运算，小数将被舍去。
+
+bash中的变量类型默认为字符串。
+
+PATH变量：当你执行某个指令，系统会按PATH中的路径顺序搜寻指令，如果找不到，就会显示command not found。
+
+HOME家目录
+
+SHELL使用的是哪个shell
+
+HISTSIZE存储的历史命令个数
+
+MAIL邮件路径
+
+LANG使用的字符集
+
+RANDOM随机数，使用echo $RANDOM可取得随机数。
+
+echo ${PATH}  # 显示变量
+
+variable=value  # 设定或修改变量值，内容有空格可使用引号。单引号内$等为一般字符，双引号内为为特殊字符。可用(反斜杠+特殊字符)将特殊字符变为一般字符。
+
+echo $(uname -r)  # 当指定中包含其他指令时，使用$()。
+
+PATH=${PATH}/home/bin  # 扩增变量内容。可用"$PATH"替换${PATH} 
+
+export  # 将自定义变量转成环境变量，因为子程序只继承父程序的环境变量，不继承自定义变量，所以共享要转为环境变量。
+
+unset PATH  # 取消变量。
+
+env和export都可以列出当前环境变量。
+
+set和declare能列出所有变量，不只是环境变量。
+
+type [-tpa] cd  # 查看指定是否为bash自带指令。对于非内置指令，还能查到目录位置，相当于which功能。
+
+$也是变量，代表当前这个shell的PID，可用echo $$显示。
+
+?也是变量，代表上一个指令的回传值，可用echo $?显示，0代表执行成功，上个指令执行错误会返回错误码。
+
+read [-pt] var  # 获取用户输入的变量。-p提示内容，-t等待秒数。
+
+declare [-aixr] var  # -a将var变为数组类型，-i将var变为整数类型，-x将var变为环境变量同export，-r将var变成只读，且不能unset。
+
+declare +x var  # 取消var的环境变量设置，变为非环境变量。
+
+declare -p var  # 显示var变量的类型设置。
+
+declare -a var  # var[1]='zhangsan'这样设置数组的值，echo ${var[1]}显示数组的值。
+
+ulimit用来限制用户资源占用，如开启文件数量，如可使用CPU时间，如可使用内存量等等。
+
+
+
+
 
 
 
@@ -126,7 +198,7 @@ ll | wc -c  # 统计总的容量大小
 
 ll -h  # 文件大小显示单位
 
-ll -rt  # 结果按名称反向排序
+ll -rt  # 结果按时间排序并反向排序
 
 
 
@@ -185,14 +257,6 @@ rm -rf file
 ### mv
 
 mv -r raw_file new_file
-
-
-
-### cat
-
-cat file
-
-
 
 
 
@@ -354,10 +418,6 @@ ifconfig（网卡信息）
 
 ip a（网卡信息）
 
-man方法
-
-source和.等价
-
 time  # 命令前面加time可显示程序运作时间。
 
 find /etc -newer /etc/passwd  # 查找所有比passwd新的文件
@@ -381,19 +441,7 @@ find  实际搜寻硬盘查询文件名称。
 
 ##### 鸟哥私房菜整理
 
-type 指令，查类型，对于非内置指令，还能查到目录位置，相当于which功能
 
-echo ${变量名}
-
-环境变量：PATH,HOME,MAIL,SHELL
-
-扩增变量：PATH=${PATH}:/home/bin
-
-在子程序使用变量（升级为环境变量）：export PATH
-
-取消变量：unset 变量名
-
-查环境变量：env或export
 
 查所有变量：set
 
@@ -411,13 +459,7 @@ sz 文件名：将指定的文件下载到本地机器，会弹出窗口指定�
 
 rz -E：会弹出窗口，选择文件上传到远程机器。直接拖到xshell也有同样效果。
 
-##### 快捷键
 
-ctrl+z 挂起当时进程 假如需求康复到前台输入fg，康复到后台输入bg
-
-ctrl+c，完全停止该进程
-
-ctrl+d 不是发送信号，而是表示一个特殊的二进制值，表示 EOF。
 
 
 
@@ -483,3 +525,6 @@ Debian系列
 2、包的管理工具：apt-get
 3、支持tar包
 
+##### 阮一峰分享的linux命令窗口空间，比xshell窗口好用
+
+http://www.ruanyifeng.com/blog/2019/10/tmux.html

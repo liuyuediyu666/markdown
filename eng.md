@@ -1,3 +1,7 @@
+principles 原则观念信条n
+
+criterion 标准准则原则n
+
 paradigm 典范范例样式n
 
 massive 大规模的大块的大量的adj
@@ -31,6 +35,14 @@ exception 一般情况以外的人(或事物)例外例外的事物n
 imply 含有...的意思暗示暗指必然包含v
 
 hint 暗示提示征兆n暗示透露v
+
+this is it 就是这样
+
+that is it就是这样
+
+let's call it a dat 今天到此为止 class is over
+
+better than chance 胜于偶然
 
 20200928
 
@@ -91,6 +103,8 @@ shed light on 阐明，将...弄明白
 to get your hands dirty 亲自动手
 
 since there 从...以来，自...以 后
+
+since 自...以来prep因为由于conj此后后来adv
 
 straight-forward直截了当的
 
@@ -226,7 +240,7 @@ secure 安心的有把握的可靠的安全的adj取得实现扣紧关严保卫v
 
 
 
-(abroad aboard)
+(abroad broad broadcast aboard board)
 
 broad 宽阔的adj
 
@@ -252,7 +266,7 @@ incident 事件摩擦冲突n
 
 
 
-(achieve archive)
+(achieve achiever archive)
 
 achieve 达到完成成功v
 
@@ -276,7 +290,7 @@ adopt 收养采用采纳v
 
 
 
-(angel angle)
+(angel label angle table)
 
 angel 天使n
 
@@ -286,7 +300,7 @@ angle 角角度n斜移斜置v
 
 
 
-(assure assurance ensure insure)
+(assure assurance ensure insure insurance)
 
 assure 使确信保证v
 
@@ -302,7 +316,7 @@ insurance 保险保险业n
 
 
 
-(assign allocate)
+(assign allocate locate)
 
 assign 分配(某物);分派布置(工作、任务等);指定;指派;委派;派遣v
 
@@ -346,7 +360,7 @@ freeze 冻结停止n冻结结冰v
 
 
 
-(character)
+(character characteristic characteristically)
 
 character 品质性格特点n刻vt
 
@@ -370,7 +384,7 @@ champagne 香槟n
 
 
 
-(cite sit site sight)
+(cite site sit sight set)
 
 cite 引用传唤v
 
@@ -446,7 +460,7 @@ adversative 形成对照的表示相反的adj
 
 
 
-(compile complicate(complete) complex)
+(compile complicate(complete) complex flexible)
 
 compile 编写编译v
 

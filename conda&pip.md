@@ -97,9 +97,9 @@ zip -r whl200831.zip whl/ 压缩文件夹   # 压缩该环境文件
 
 scp whl200831.zip root@automlgpu6:/home/workflow/conda/envs   # scp是跨服务器copy，后面是服务器地址及目录
 
-然后cd到另一个服务器的/home/workflow/conda/envs目录，解压上面的压缩包
+然后cd到另一个服务器的/home/workflow/conda/envs目录，解压上面的压缩包，解压目录名就是该环境名称。
 
-确认对应环境中的/home/workflow/conda/bin/pip文件中最上面路径指向/home/workflow/conda/bin/python  
+注意解压后的环境下的一个文件vim /conda/envs/dz2/bin/pip，第一行的路径应指向/conda/envs/dz2/bin/python，改过来即可。
 
 
 
