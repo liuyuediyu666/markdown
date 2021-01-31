@@ -72,7 +72,9 @@ conda info --help
 
 conda create --help
 
-conda create -n whlenv
+conda create -n whlenv python=3.6  # 创建环境并指定python版本
+
+conda remove  -n whlenv --all  # 删除某环境
 
 conda install -c 
 
@@ -85,6 +87,12 @@ conda activate whl  #激活环境
 conda list  # 查看当前环境下已安装的包
 
 conda deactivate  # 反激活环境
+
+##### 重命名环境(conda 其实没有重命名指令，是通过clone完成的，分两步)
+
+conda create -n newenv --clone oldenv  # 先clone一份新的环境
+
+conda remove -n oldenv  # 再删除旧的环境
 
 ##### 在linux下需要用source命领激活conda才能启动conda命令
 

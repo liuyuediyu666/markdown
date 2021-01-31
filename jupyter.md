@@ -51,9 +51,26 @@ jt -r  # 恢复原始主题
 
 # win10相关
 
-配置文件在这里C:\Users\hayden\\.jupyter
+##### 快捷方式打开指定目录
 
 可以找到jupyter notebook快捷方式所在文件夹，复制到桌面，然后通过改配置文件参数，能控制这个桌面快捷方式的行为，打开目录，打开lab等。
+
+##### 配置文件位置
+
+配置文件在这里C:\Users\hayden\\.jupyter
+
+##### 快捷方式打开时，如何指定浏览器
+
+在配置文件中添加以下三行语句
+
+```python
+import webbrowser webbrowser.register('chrome',None,webbrowser.GenericBrowser(u'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe')) 
+c.NotebookApp.browser = 'chrome'
+```
+
+
+
+
 
 
 

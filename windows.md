@@ -6,6 +6,34 @@
 
 https://blog.csdn.net/zhong_ling/article/details/78223062
 
+##### 关机命令
+
+
+
+shutdown -s -t 关机
+
+shutdown -r -t 重启
+
+shutdown -a 取消关机
+
+shutdown -f　强行关闭应用程序
+
+shutdown -h 休眠
+
+shutdown -m \\计算机名　控制远程计算机
+
+shutdown -i　显示“远程关机”[图形用户界面](https://baike.baidu.com/item/图形用户界面)，但必须是Shutdown的第一个参数
+
+shutdown -l　注销当前用户
+
+at 13:00 shutdown -s
+
+
+
+
+
+
+
 
 
 ##### 设置资源管理器窗口中默认列顺序。以及列的宽度。好像只能对当前窗口设置。
