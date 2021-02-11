@@ -40,7 +40,9 @@ git clone git@github.com:account/repository
 
 ##### 删除远程仓库文件的正确姿势（要用git rm）
 
-仅在文件夹中右键删除文件，再进行add,commit,push，并不会删除远端仓库对应文件。正确操作如下：
+第一种方法：在文件夹中右键删除文件，再进行add,commit,push。这种方法有时会失灵，并不会删除远端仓库对应文件，暂时不知道原因。
+
+第二种操作方法（使用git rm）：
 
 第1步：git ls-tree HEAD：查看目前所有文件，包含右键删除的文件。
 
