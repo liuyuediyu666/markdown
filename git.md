@@ -116,6 +116,20 @@ git ls-tree HEAD
 
 
 
+### 常见报错
+
+##### 报错1
+
+因win换行符为CRLF，linux换行符为LF，在git add时会报错如下`Github warning: LF will be replaced by CRLF`
+
+解决办法：git config --global core.autocrlf false
+
+
+
+
+
+
+
 ### ssh设置
 
 ##### 基本概念
