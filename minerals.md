@@ -108,7 +108,7 @@ github上一个开源的：XX-Net。https://github.com/XX-net/XX-Net
 
 哔哩哔哩助手：https://www.bilibili.com/video/BV1Gb411h7Ko?from=search&seid=6730503573184183281
 
-
+flightradar24 实时航班地图：https://www.flightradar24.com/
 
 
 
