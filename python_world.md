@@ -12,9 +12,15 @@ python官方文档（中英文）：https://docs.python.org/3.7/ ；https://docs
 
 python官方文档（标准库）：https://docs.python.org/zh-cn/3/library/
 
-这个也是python官方文档？：http://www.pythondoc.com/pythontutorial3/index.html
-
 python源代码的github仓库：https://github.com/python/cpython  
+
+python文档托管平台教程：http://www.pythondoc.com/pythontutorial3/index.html
+
+python文档托管平台教程，https://python3-cookbook.readthedocs.io/zh_CN/latest/
+
+
+
+
 
 ### module官方文档
 
@@ -41,7 +47,7 @@ mmcv（docs）：http://mmcv.readthedocs.io/en/latest
 
 sklearn（org）：https://scikit-learn.org/stable/index.html
 
-
+seaborn（org）：http://seaborn.pydata.org/
 
 ##### 
 
@@ -90,6 +96,10 @@ https://zhuanlan.zhihu.com/p/67716530
 https://zhuanlan.zhihu.com/p/144315018
 
 
+
+# NLP民工的乐园: 几乎最全的中文NLP资源库
+
+https://github.com/fighting41love/funNLP
 
 
 
