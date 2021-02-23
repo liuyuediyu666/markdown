@@ -1,14 +1,52 @@
-# 待处理
+# 杂
+
+### 待处理
 
 ##### pip机制待学习，帮助了解包的发布
 
 
 
+### 安装目录
+
+##### linux自带python目录
+
+/usr/bin/python
+
+/usr/lib/python3.6/site-packages
+
+##### linux安装conda后的base
+
+/home/username/conda/bin/python
+
+/home/username/conda/bin/activate
+
+/home/username/conda/lib/python3.7/site-packages
+
+##### linux安装conda后的envs
+
+/home/username/conda/envs/envname/bin/python
+
+/home/username/conda/envs/envname/lib/python3.7/site-packages
+
+##### win安装conda后的base
+
+c:\programdata/anaconda3\python.exe
+
+c:\programdata/anaconda3\lib\site-packages
+
+##### win安装conda后的envs
+
+c:\programdata/anaconda3\envs\envname\python.exe
+
+c:\programdata/anaconda3\envs\envname\lib\site-packages
 
 
 
 
-# 其他
+
+### 其他
+
+
 
 python file.py -h可显示argparse中定义的帮助信息
 
@@ -41,10 +79,6 @@ https://www.zhihu.com/question/319387513/answer/652621252
 https://www.icode9.com/content-1-470002.html
 
 ##### python -c执行方法
-
-
-
-
 
 
 
