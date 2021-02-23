@@ -14,21 +14,56 @@ https://www.webfx.com/tools/emoji-cheat-sheet/
 
 
 
+### 快捷键
+
+基于typora的，与印象笔记等其他软件快捷键有区别
+
+| 快捷键                                | 功能                         |
+| ------------------------------------- | ---------------------------- |
+| ctrl + t                              | 插入表格                     |
+| ctrl + 1,2,3,4,5,6                    | 设置标题                     |
+| tab或shift tab                        | 行缩进，对短横线的行标有效。 |
+| 短横线 + 空格                         | 行标，对行标缩进请使用tab    |
+| ___                                   | 段落线                       |
+| ctrl + shift + [（ctrl + ]或[可缩进） | 有序列表                     |
+| ctrl + shift + ]                      | 无序列表                     |
+| 行尾两个空格                          | 分行                         |
+| 单层反单引号                          | 小代码块                     |
+| 三层反单引号 (ctrl + shift + k)       | 大代码块                     |
+| ctrl + shift + m                      | 公式块                       |
+| ctrl + shift + (-/=)                  | 窗口缩放                     |
+| ctrl + shift + (l/1/2/3)              | 左侧边栏设置                 |
+| ctrl + b (双星括号)                   | 粗体                         |
+| ctrl + u                              | 下划线                       |
+| ctrl + i (单星括号)                   | 斜体                         |
+|                                       |                              |
+|                                       |                              |
+
+
+
+
+
 
 
 ### 链接
 
-##### 行内式键接（第1个方括号是链接名，第2个圆括号是链接地址，尾部双引号可加标题）
+##### 行内式键接
+
+（第1个方括号是链接名，第2个圆括号是链接地址，尾部双引号可加标题）
 
 [eg of baidu](https://www.baidu.com/)
 
-##### 参考式键接(第1个方括号是链接名，第2个方括号是链接变量，变量定义可放在任何位置，可放在文档最后)（尾部双引号可加标题）
+##### 参考式键接
+
+(第1个方括号是链接名，第2个方括号是链接变量，变量定义可放在任何位置，可放在文档最后)（尾部双引号可加标题）
 
 [eg remote baidu][id3]
 
 [id3]:https://www.baidu.com/ "可选"
 
-##### 参考式图片(以!号开始，第1个方括号是链接名，第2个方括号是链接变量，变量定义可放在任何位置。参考式格式为标题时不再居主，而是左对齐)
+##### 参考式图片
+
+(以!号开始，第1个方括号是链接名，第2个方括号是链接变量，变量定义可放在任何位置。参考式格式为标题时不再居中，而是左对齐)
 
 ![asdfgh][content1]
 
@@ -51,37 +86,218 @@ with open('abb.png','wb') as f:
 
 
 
+### 绘图
+
+##### flow流程图
+
+定义元素：标签=>元素类型: 描述文字:>url链接（点击元素时可跳转（可选））(第1个冒号后必须有空格)
+
+连接两个元素：-> 
+
+条件类型判断：如示例中的cond(yes)和cond(no) 。
+
+每个元素可以设置分支走向，默认向下（bottom），也可以用left指向左边或者用right指向右边，如示例中sub1(right)。 
+
+```
+flowchat
+st=>start: 开始
+e=>end: 结束
+op1=>operation: 操作执行
+sub1=>subroutine: 子分支
+cond=>condition: 条件
+io=>inputoutput: 输入输出
+st->op1->cond
+cond(yes)->io->e
+cond(no)->sub1(right)->op1
+```
+
+```flow
+flowchat
+st=>start: Start
+e=>end: End
+op1=>operation: Operation
+sub1=>subroutine: Subroutine
+cond=>condition: yes or no ?
+io=>inputoutput: proceess something...
+st->op1->cond
+cond(yes)->io->e
+cond(no)->sub1(right)->op1
+```
+
+##### graph图表
+
+1、graph关键字
+
+graph TB表示流程图从上到下开始，TB表示设置该图起始的方向，方向的定义如下：
+
+TB（ top bottom）表示从上到下
+
+BT（bottom top）表示从下到上
+
+RL（right left）表示从右到左
+
+LR（left right）表示从左到右
+
+2、节点形状
+
+大写字母表示节点，name表示节点的名字，主要形状如下：
+
+文本节点 B[bname]
+
+圆角节点 C(cname)
+
+圆形节点 D((dname))
+
+非对称节点 E>ename]
+
+菱形节点 F{fname}
+
+```
+graph TD
+B[bname]
+C(cname)
+D((dname))
+E>ename]
+F{fname}
+```
+
+```mermaid
+graph TD
+B[bname]
+C(cname)
+D((dname))
+E>ename]
+F{fname}
+```
+
+3、连线
+
+节点间的连接线可以设置多种形状，而且可以在连接线中加入文字text：
+
+箭头连接 A1–>B1
+
+开放连接 A2—B2
+
+标签连接 A3-- text —B3 或者 A3—|text|B3
+
+箭头标签连接 A4–text–>B4 或者 A4–>|text|B4
+
+虚线开放连接 A5.-B5 或者 A5-.-B5 或者 A5…-B5
+
+虚线箭头连接 A6.->B6 或者 A6-.->B6
+
+标签虚线连接 A7-.text.-B7
+
+标签虚线箭头连接 A8-.text.->B8
+
+粗线开放连接 A9===B9
+
+粗线箭头连接 A10==>B10
+
+标签粗线开放连接 `A11==text===B11`
+
+标签粗线箭头连接`A12==text==>B12`
+
+```
+graph TD
+A1==TEXT===B1
+A2-->|text|B2
+A3..-B3	
+```
+
+```mermaid
+graph TD
+A1==TEXT===B1
+A2-->|text|B2
+A3..-B3	
+```
+
+4、示例
+
+```
+graph LR
+A[方形] -->B(圆角)
+B --> C{条件a}
+C -->|a=1| D[结果1]
+C -->|a=2| E[结果2]
+F[横向流程图]
+```
+
+```mermaid
+graph LR
+A[方形] -->B(圆角)
+B --> C{条件a}
+C -->|a=1| D[结果1]
+C -->|a=2| E[结果2]
+F[横向流程图]
+```
+
+```
+graph TD
+A[方形] -->B(圆角)
+B --> C{条件a}
+C -->|a=1| D[结果1]
+C -->|a=2| E[结果2]
+F[竖向流程图]
+```
+
+```mermaid
+graph TD
+A[方形] -->B(圆角)
+B --> C{条件a}
+C -->|a=1| D[结果1]
+C -->|a=2| E[结果2]
+F[竖向流程图]
+```
 
 
-# 快捷键
 
-ctrl+t：插入表格
+##### gantt甘特图--mermaid 
 
-ctrl+1~5：设置标题
+关键词说明：
+title—标题
+dateFormat—日期格式
+section—模块
+Completed—已经完成
+Active—当前正在进行
+Future—后续待处理
+crit—关键阶段 
 
-tab或shift tab：行缩进，对短横线行标有效。
+```
+gantt
+　　　dateFormat　YYYY-MM-DD
+　　　title Adding GANTT diagram functionality to mermaid
+　　　section A section
+　　　Completed task　　:done, des1, 2014-01-06,2014-01-08
+　　　Active task 　　　　:active, des2, 2014-01-09, 3d
+　　　future task 　　　　:　　　  des3, after des2, 5d
+　　　future task2　　　　:　　　  des4, after des3, 5d
+　　　section Critical tasks
+　　　Completed task in the critical line　:crit, done, 2014-01-06,24h
+　　　Implement parser and json　　　　　　:crit, done, after des1, 2d
+　　　Create tests for parser　　　　　　　:crit, active, 3d
+　　　Future task in critical line　　　　　:crit, 5d
+　　　Create tests for renderer　　　　　　:2d
+　　　Add to ,mermaid　　　　　　　　　　　:1d
+```
 
--空格：行标
-
-___ ：段落线
-
-单星括号：斜体
-
-双星括号：粗体
-
-行尾两个空格：分行
-
-单层反单引号：小代码块
-
-三层反单引号：大代码块
-
-
-
-
-
-
-
-
+```mermaid
+gantt
+　　　dateFormat　YYYY-MM-DD
+　　　title Adding GANTT diagram functionality to mermaid
+　　　section A section
+　　　Completed task　　:done, des1, 2014-01-06,2014-01-08
+　　　Active task 　　　　:active, des2, 2014-01-09, 3d
+　　　future task 　　　　:　　　  des3, after des2, 5d
+　　　future task2　　　　:　　　  des4, after des3, 5d
+　　　section Critical tasks
+　　　Completed task in the critical line　:crit, done, 2014-01-06,24h
+　　　Implement parser and json　　　　　　:crit, done, after des1, 2d
+　　　Create tests for parser　　　　　　　:crit, active, 3d
+　　　Future task in critical line　　　　　:crit, 5d
+　　　Create tests for renderer　　　　　　:2d
+　　　Add to ,mermaid　　　　　　　　　　　:1d
+```
 
 
 
