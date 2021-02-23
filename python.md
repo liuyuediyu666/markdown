@@ -12,12 +12,6 @@
 
 python file.py -h可显示argparse中定义的帮助信息
 
-##### ipynb转markdown
-
-```python
-jupyter nbconvert --to markdown --output-dir "C:\\users\\hayden\\desktop\\ipynb\\md_convert" "C:\users\hayden\desktop\ipynb\*.ipynb" 
-```
-
 ##### python调用dos命令
 
 一种是os.system('python some.py')，另一种是subprocess库的popen函数。注意文件路径最好是绝对路径，相对路径会因环境变量问题导致错误。另外一定要给路径加上引号，否则会有可能报错。

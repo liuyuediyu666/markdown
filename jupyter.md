@@ -37,6 +37,14 @@ jupyter --version
 
 
 
+##### ipynb转markdown
+
+```python
+jupyter nbconvert --to markdown --output-dir "C:\\users\\hayden\\desktop\\ipynb\\md_convert" "C:\users\hayden\desktop\ipynb\*.ipynb" 
+```
+
+
+
 # jupyter notebook主题更换（对lab无效）
 
 pip install jupyterthemes
