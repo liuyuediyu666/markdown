@@ -164,7 +164,7 @@ dir(模块名)，返回目标模块内的变量，包括（`__file__`,`__name__`
 
 ##### 注意
 
- `from package import item` 时，import语句会首先检查item是不是init.py的变量，然后再检查目录中是否有item这个子包，如果有则导入这个包的init模块。最后才会检查是否有item模块(也就是.py文件)并导入。所以要避免包名，模块名以及init变量名的重名。
+ `from package import item` 时，import语句会首先检查item是不是init.py的变量，然后再检查目录中是否有item这个子包，如果有则导入这个包的init模块。最后才会检查是否有item模块(也就是.py文件)并导入。所以要避免包名，模块名以及init变量名的重名。(这段已测试，确实如此)
 
 `import foo.bar.baz`时，Python 先尝试导入 `foo`，然后是 `foo.bar`，最后是 `foo.bar.baz`。 如果这些导入中的任何一个失败，都会引发`ModuleNotFoundError`。
 
