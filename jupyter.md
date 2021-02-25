@@ -31,16 +31,39 @@ jupyter --version
 
 
 
-# jpynb导出为md文件
-
-一种是linux下执行命令（jupyter nbconvert --to md notebook.ipynb），一种是用jupyter notebook可以导出md
 
 
 
-##### ipynb转markdown
+
+
+
+# 常用
+
+### ipynb转markdown
+
+一种是linux下执行命令（jupyter nbconvert --to md notebook.ipynb），一种是在jupyter notebook交互界面可以导出md。
 
 ```python
 jupyter nbconvert --to markdown --output-dir "C:\\users\\hayden\\desktop\\ipynb\\md_convert" "C:\users\hayden\desktop\ipynb\*.ipynb" 
+```
+
+
+
+### jupyter交互界面显示图片3方法
+
+```python
+"""使用pillow"""
+from PIL import Image as img
+img.open('abcd.jpg')
+"""使用opencv，要配合matplotlib"""
+import cv2
+from matplotlib import pyplot as plt
+img1 = cv2.imread('abcd.jpg')
+img2 = img1[:,:,::-1] # 必须为 ::-1
+plt.imshow(img2)
+"""使用ipython。IPython.display.display在打开jupyter时默认导入"""
+from IPython.display import Image
+Image('abcd.jpg')
 ```
 
 
