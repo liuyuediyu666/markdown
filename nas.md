@@ -217,6 +217,17 @@ https://item.m.jd.com/product/26366944253.html?wxa_abtest=a&utm_source=iosapp&ut
 
 
 
+### 路由器刷固件，翻墙代理屏蔽广告等相关操作郭世纪
+
+GitHub - coolsnowwolf/openwrt: OpenWrt Stable Version
+https://github.com/coolsnowwolf/openwrt
+coolsnowwolf · GitHub
+https://github.com/coolsnowwolf
+[OpenWrt Wiki] 欢迎访问 OpenWrt 项目
+https://openwrt.org/zh/start
+
+
+
 
 
 

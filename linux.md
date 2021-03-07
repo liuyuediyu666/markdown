@@ -6,7 +6,9 @@ watch -n 1 -d nvidia-smi（这是一个命令组合，watch -n 1后面可跟命�
 
 watch -n 1 free
 
-##### ~符号指代/home/user目录（windows下默认就是**C盘/Users/用户名**）
+##### ~符号
+
+代指/home/username（windows下默认就是C盘/Users/username）
 
 
 
