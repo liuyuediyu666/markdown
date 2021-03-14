@@ -44,6 +44,8 @@ let's call it a dat 今天到此为止 class is over
 
 better than chance 胜于偶然
 
+wall time 经过的时间(wall clock time)
+
 20200928
 
 

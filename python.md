@@ -160,13 +160,13 @@ dir(模块名)，返回目标模块内的变量，包括（`__file__`,`__name__`
 
 ##### 第四步，变量赋值
 
-会覆盖已存在（也就是冲突）的变量名（dir()可查看已存在变量）。
+import xxx或import as xxx会给xxx变量赋值，也会覆盖xxx原本的变量，虽然包已导入无需再导入，但变量赋值必执行（dir()可查看已存在变量）。
 
 ##### 注意
 
  `from package import item` 时，import语句会首先检查item是不是init.py的变量，然后再检查目录中是否有item这个子包，如果有则导入这个包的init模块。最后才会检查是否有item模块(也就是.py文件)并导入。所以要避免包名，模块名以及init变量名的重名。(这段已测试，确实如此)
 
-`import foo.bar.baz`时，Python 先尝试导入 `foo`，然后是 `foo.bar`，最后是 `foo.bar.baz`。 如果这些导入中的任何一个失败，都会引发`ModuleNotFoundError`。
+`import foo.bar.baz`时，Python 先尝试导入 `foo`，然后是 `foo.bar`，最后是 `foo.bar.baz`。 如果这些导入中的任何一个失败(比如某个包下面的init文件执行报错)，都会引发`ModuleNotFoundError`。
 
 `import a.b.c`时，除c以外的前面每一项必须是包，c可以是包也可以是模块。但c若是包则不能使用c.modules引用c包中的模块，只能c.item引用c包init中定义的内容。
 
@@ -406,10 +406,10 @@ foldera.fdartva  # 值为7，为from .root_file import fdartva导入的
 """按以下顺序导入，各执行一次init"""
 import foldera  # 导入了foldera/__init__.py
 打印im fdainit
-from foldera import filea  # 导入了foldera/foldera_fa/init.py
+from foldera import foldera_fa  # 导入了foldera/foldera_fa/init.py
 打印im fdafdainit
 """按以下顺序导入，第一条导入已执行了两个init，第二条导入没有导入任何包"""
-from foldera import filea  # 导入了foldera/__init__.py和foldera/foldera_fa/init.py
+from foldera import foldera_fa  # 导入了foldera/__init__.py和foldera/foldera_fa/init.py
 打印im fdainit
 打印im fdafdainit
 import foldera  # 未导入任何内容

@@ -6,11 +6,11 @@
 
 https://blog.csdn.net/zhong_ling/article/details/78223062
 
-##### 关机命令
+##### 关机命令(win+r打开运行窗口)
 
+shutdown -s -t 等几秒关机
 
-
-shutdown -s -t 关机
+shutdown -s -t 0 立刻关机
 
 shutdown -r -t 重启
 
@@ -29,6 +29,10 @@ shutdown -l　注销当前用户
 at 13:00 shutdown -s
 
 
+
+##### 查看电脑bios时间接近购买(生产)时间
+
+打开cmd命领窗口，执行systeminfo
 
 
 
