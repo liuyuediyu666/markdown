@@ -8,7 +8,9 @@ https://www.webfx.com/tools/emoji-cheat-sheet/
 
 
 
+### 其他
 
+创建目录（可以任何地方插入，但一定要顶格写）：[toc]
 
 
 

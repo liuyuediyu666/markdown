@@ -36,49 +36,33 @@ imply 含有...的意思暗示暗指必然包含v
 
 hint 暗示提示征兆n暗示透露v
 
+subsidiary 辅助的子公司
+
+sophisticated 先进老练的 
+
+signifies 表示说明 
+
+consumption 消费消耗 
+
+20210321
+
+
+
+
+
+certain 确实确定肯定确信无疑(不提及细节时用)某事
+
 this is it 就是这样
 
 that is it就是这样
 
-let's call it a dat 今天到此为止 class is over
+let's call it a dat 今天到此为止 
+
+class is over 下课了
 
 better than chance 胜于偶然
 
 wall time 经过的时间(wall clock time)
-
-20200928
-
-
-
-
-
-hence 因此adv 
-
-reason 原因n推理v 
-
-sake 缘故n 
-
-because 因为conj 
-
-so 因此conj很adv 
-
-although 虽然然而conj 
-
-but 但是conj 
-
-so that 因此以便conj 
-
-whenever 无论何时conj 
-
-whatever 不管怎样pron/adv
-
-however 然而不管怎样无论如何adv
-
-despite 即使尽管prep
-
-
-
-
 
 kick off 开始开球v
 
@@ -154,8 +138,6 @@ sign in 登记
 
 sign up 注册 
 
-consumption 消费消耗 
-
 come in handy 派上用场 
 
 trouble shooting 问题排查 
@@ -170,10 +152,6 @@ pass the time 打发时间
 
 up to this point 目前为止 
 
-sophisticated 先进老练的 
-
-signifies 表示说明 
-
 and so forth 等等(书面语)；
 
 and so on 等等；
@@ -185,8 +163,6 @@ plain python 纯Python
 plain text 纯文本 
 
 independent and dependent variables 自变量和因变量 
-
-subsidiary 辅助的子公司
 
 wrapping up 总结
 
@@ -207,6 +183,12 @@ still on goint 进行中
 known issues 已知问题
 
 one size fits all 一刀切
+
+
+
+
+
+(try trial experiment experimental)
 
 try 试图设法努力试验v尝试n
 
@@ -237,6 +219,58 @@ raw 生的未煮的未加工的自然状态的未经分析的adj擦伤处n
 recursion 递归
 
 secure 安心的有把握的可靠的安全的adj取得实现扣紧关严保卫v
+
+
+
+
+
+(reson because sake although despite but whenever whatever however)
+
+reason 原因n推理v 
+
+because 因为conj 
+
+sake 缘故n 
+
+although 虽然然而conj 
+
+despite 即使尽管prep
+
+but 但是conj 
+
+whenever 无论何时conj 
+
+whatever 不管怎样pron/adv
+
+however 然而不管怎样无论如何adv
+
+
+
+
+
+
+
+
+
+(so so that hence thus therefore accordingly consequently)
+
+so 因此conj很adv 
+
+so that 因此以便conj 
+
+hence 因此adv 
+
+thus 以此方式如此这样因此从而所以adv
+
+therefore 因此所以因而adv
+
+accordingly 照着相应地因此所以adv
+
+consequently 因此所以adv
+
+
+
+
 
 
 

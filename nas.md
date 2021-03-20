@@ -75,6 +75,18 @@ http://nps.iokle.com:8080/login/index
 
 https://www.jianshu.com/p/eefddb256ad7
 
+##### 推荐4（群友分享，暂不知ssr如何用）
+
+ssr://MTAxLjMyLjIxLjIwNjo1MDAwOm9yaWdpbjphZXMtMjU2LWNmYjpwbGFpbjphVzlyYkdVdWFHcw
+
+##### 推荐5（nginx）
+
+有三大功能，正向代理，反向代理，用于搭建基于域名的虚拟主机。
+
+
+
+
+
 
 
 

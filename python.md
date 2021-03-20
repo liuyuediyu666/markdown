@@ -482,15 +482,17 @@ folder1是一个项目，运行这个项目需要在folder1文件夹中打开cmd
 ```python3
 # first1.py
 from first2 import sth          # OK
+from folder2.second2 import sth # OK
 from folder1.first2 import sth  # ERROR
+from second2 import sth         # ERROR
 from .first2 import sth         # ERROR
 
-from folder2.second1 import sth # OK
-
 # second1.py
+from first2 import sth          # OK
 from folder2.second2 import sth # OK
-from .second2 import sth        # OK
+from folder1.first2 import sth  # ERROR
 from second2 import sth         # ERROR
+from .second2 import sth        # OK
 ```
 
 (注意first1引用first2 与 second1引用second2 的区别)
@@ -499,20 +501,19 @@ folder1是一个包，一般使用时，是在外面的文件夹中import这个�
 
 ```python3
 # first1.py
+from first2 import sth           # ERROR
 from folder1.first2 import sth   # OK
 from .first2 import sth          # OK
-from first2 import sth           # ERROR
 from . import first2             # OK
 import .first2                   # ERROR
 
-from folder1.folder2 import second1  # OK
-from .folder2 import second1         # OK
-
-
 # second1.py
-from folder1.folder2 import second2  # OK
+from first2 import sth               # ERROR
+from folder1.first2 import sth       # OK
+from .first2 import sth              # ERROR
+from . import first2                 # ERROR
+from .. import first2                # OK
 from . import second2                # OK
-from .. import first1                # OK
 from ..folder3 import third1         # OK
 ```
 

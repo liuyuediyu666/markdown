@@ -34,35 +34,25 @@ imply
 
 hint
 
+subsidiary
+
+sophisticated
+
+signifies
+
+consumption
+
+certain
+
 this is it
 
 let's call it a dat
 
+class is over
+
 better than chance
 
-hence
-
-reason
-
-sake
-
-because
-
-so
-
-although
-
-but
-
-so that
-
-whenever
-
-whatever
-
-however
-
-despite
+wall time
 
 kick off
 
@@ -134,8 +124,6 @@ sign in
 
 sign up
 
-consumption
-
 come in handy
 
 trouble shooting
@@ -150,10 +138,6 @@ pass the time
 
 up to this point
 
-sophisticated
-
-signifies
-
 and so forth
 
 and so on
@@ -165,8 +149,6 @@ plain python
 plain text
 
 independent and dependent variables
-
-subsidiary
 
 wrapping up
 
@@ -205,6 +187,38 @@ raw
 recursion
 
 secure
+
+reason
+
+because
+
+sake
+
+although
+
+despite
+
+but
+
+whenever
+
+whatever
+
+however
+
+so
+
+so that
+
+hence
+
+thus
+
+therefore
+
+accordingly
+
+consequently
 
 broad
 
@@ -1075,6 +1089,4 @@ obvious
 obviously
 
 viz.是videlicet（ "namely", "towit", "precisely", "that is to say"：即）的缩写，与e.g.不同，viz位于同位列表之前，要把它前面单词所包含的项目全部列出。 w.r.t.的意思是“关于”，是with respect to；with regard to；with reference to
-
-
 

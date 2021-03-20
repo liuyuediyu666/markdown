@@ -242,23 +242,47 @@ Linux还得有个“外交部”——防火墙，只有它许可开放，那才
 
 # jupyter操作
 
-- 非编辑模式下：  
-  B 向下新建 A 向上新建   
-  X 剪切 V 粘贴 C 复制   
-  Shift+Ctrl+-切割 Shift+M合并(先选中，可以用Shift+箭头)  
-  F 查找替换  
-  Ctrl + F 在cell内搜索，或全局搜索  
-  设置标题大小，数字键1-6  
-- 模式： Code-y MarkDown-m Raw-r
+##### 非编辑模式下：  
+
+单元格操作：b, a, c, x, v, shift+ctrl+-, shift+m
+
+标题字号：数字键1-6 
+
+搜索：ctrl+f，在cell内搜索，或全局搜索 
+
+模式切换： Code-y MarkDown-m Raw-r
+
+##### 编缉模式下：
+
+ctrl+鼠标左键，多光标同步操作。
+
+ctrl+enter，运行当前Cell，选中当前Cell
+
+shift+enter，运行当前Cell，选中下一个Cell
+
+alt+enter，运行当前Cell，创建下一个Cell并进入编辑
+
+##### 魔法命令：
+
+%对单行有效，放在单行行首。
+
+%%对Cell有效，放在Cell最开头，单独一行。
+
+%time，统计单行运行时间。
+
+%%time，统计单元格运行时间。有时导致代码不执行，且不报错。
+
+%matplotlib inline，matplotlib绘图，一个notebook中只需要运行一次，则之后用matplotlib库作图不需要plt.show()即可把图展示出来。
+
+
+
+##### 未整理的
+
 - jupyter notebook配置默认启动路径  
   打开Anaconda Prompt，输入jupyter notebook --generate-config，获得jupyter_notebook_config.py文件的路径  
   打开jupyter_notebook_config.py文件，找到##The directory to use for notebooks and kernels.，设置c.NotebookApp.notebook_dir = '设置路径'  
   右击jupyter notebook图标，点击属性，找到目标（T），将路径最后的%USERPROFILE%删掉。
-
 - 编缉模式下  
-  Ctrl  + Enter     运行当前Cell，选中当前Cell  
-  Shift + Enter     运行当前Cell，选中下一个Cell  
-  Alt   + Enter     运行当前Cell，创建新的Cell并进入编辑模式  
   Ctrl + /          批量注释与取消注释  
   Tab               代码提示  
   Shift + Tab       查看函数帮助文档（点击加号可以看详细内容）  
@@ -266,18 +290,7 @@ Linux还得有个“外交部”——防火墙，只有它许可开放，那才
   home/end(Alt + left/right)  光标移动到行首/尾  
   按住Alt拖动鼠标              多行编辑、矩形选框  
   按住Ctrl在多个位置点击鼠标    多处同时编辑  
-- 魔法命令规律  
-  单个百分号表示对这一行有效，放在单行行首  
-  两个百分号表示对这一个Cell有效，放在Cell最开头，单独一行  
-- 统计程序运行时间  
-  %%time  # 此命令要放在第一行，有时会导致代码执行没效果，且不报错。
-  import time  
-  for i in range(3):  
-    》》%time time.sleep(0.1)  
-  for j in range(2):  
-    》》%time time.sleep(0.2)  
-- matplotlib绘图，一个notebook中只需要运行一次，则之后用matplotlib库作图不需要plt.show()即可把图展示出来。  
-  %matplotlib inline  
+- 魔法命令规律 
 - 运行py文件，就相当于把文件中的代码复制过来跑一遍。文件中导入的库、定义过的变量、函数都会进入到notebook的环境中，这和import不同。  
   %run hello.py  
 - 调用系统命令，在前面加一个！在linux系统中，则可以使用!ls或!wget等命令。也可以用%%bash运行整个Cell的shell命令。  
