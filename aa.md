@@ -46,7 +46,9 @@ certain
 
 this is it
 
-let's call it a dat
+that is it
+
+let's call it a day
 
 class is over
 

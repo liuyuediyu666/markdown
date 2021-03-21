@@ -115,15 +115,42 @@ scp whl200831.zip root@automlgpu6:/home/workflow/conda/envs   # scp是跨服务�
 
 # pip
 
-vim ~/.pip/pip.config  # 这是pip配置文件
+
 
 pip install pk -i https://pypi.tuna.tsinghua.edu.cn/simple --default-time=100
 
 pip install --upgrade pk --ignore-installed pk
 
-
-
 pip show autokeras  # 显示包信息
+
+
+
+### 配置pip的源
+
+##### Linux配置文件地址，没有的话可用txt新建
+
+~/.pip/pip.conf
+
+##### win配置文件地址可用以下命令查看，没有的话可新建pip.conf
+
+`pip -v config list`
+
+##### 文件内容
+
+```python
+[global]
+index-url = http://pypi.douban.com/simple #豆瓣源
+trusted-host = pypi.douban.com  #添加豆瓣源为可信主机，否则可能报错
+disable-pip-version-check = true #取消pip版本检查，排除每次都报最新的pip
+timeout = 120
+
+
+#其他常用源
+https://pypi.tuna.tsinghua.edu.cn/simple/ #清华
+http://mirrors.aliyun.com/pypi/simple/ #阿里云
+https://pypi.mirrors.ustc.edu.cn/simple/ #中国科技大学
+http://pypi.douban.com/simple/ #豆瓣
+```
 
 
 
