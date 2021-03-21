@@ -54,9 +54,9 @@ certain 确实确定肯定确信无疑(不提及细节时用)某事
 
 this is it 就是这样
 
-that is it就是这样
+that is it 就是这样
 
-let's call it a dat 今天到此为止 
+let's call it a day 今天到此为止 
 
 class is over 下课了
 
@@ -243,10 +243,6 @@ whenever 无论何时conj
 whatever 不管怎样pron/adv
 
 however 然而不管怎样无论如何adv
-
-
-
-
 
 
 
