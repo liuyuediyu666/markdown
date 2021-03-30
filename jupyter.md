@@ -146,7 +146,7 @@ c.NotebookApp.ip = '*'  # 等号右边的‘localhost’（仅仅运行本地访
 c.NotebookApp.notebook_dir = "/"  # 指定默认的启动路径，否则会在当前路径下启动。
 c.NotebookApp.open_browser = False  # 禁止自动打开浏览器（因为服务器上就没有浏览器）
 c.NotebookApp.password = "sha1:0d46e59c26c6:caab7b48941bee0095bdcf0747cd2a5a22a27581"  # 设置密码
-注意，当设置c.NotebookApp.password = ''时，相当于取消密码，不用输入就能进入。目前还没测试
+注意，当设置c.NotebookApp.password = ''时表示无密码，需要token=后面一串字符登录。(使用jupyter notebook list命令可获得已启服务的token)
 c.NotebookApp.port = 7788  # 设置固定的notebook服务监听的IP端口，保证不和其他已经启用的端口号冲突。
 c.NotebookApp.default_url = '/lab'  # 设置启动方式('/tree'或'/lab')，使用'/lab'的前提要安装jupyterlab。
 ```
@@ -185,7 +185,7 @@ nohup jupyter lab  &
 
 jupyter notebook list
 
-Jupyter notebook stop someport  # 通过端口号关闭后台任务目前不起作用。仍使用kill -9 PID
+Jupyter notebook stop someport  # 通过端口号关闭后台服务。只对无密码（有token）的服务有效，对于有密码的服务不起作用，请使用kill -9 PID停掉服务。(有密码时报错如下tornado.httpclient.HTTPError: HTTP 403: Forbidden)
 
 ##### 后台运行
 

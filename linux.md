@@ -133,7 +133,7 @@ man bash 包含很多内键的指令说明，如man cd。
 
 空格+反斜杠(用在指令尾表示换行)
 
-ctrl+a(移动到命令头)。ctrl+e(移动到命令尾)。ctrl+u(删除到命令头)。ctrl+k(删除到命令尾)
+ctrl+u(删除到头)ctrl+a(head)。ctrl+k(删除到尾)ctrl+e(end)
 
 ctrl+c(终止目前命令)。ctrl+z(暂停目前的命令)。
 
@@ -503,6 +503,18 @@ vim撤销一步 u
 
 
 
+# linux防火墙操作，jupyter启动后台服务会用到
+
+jupyter查看防火墙指定端口的命令
+
+https://blog.csdn.net/lipr86/article/details/103559104
+
+
+
+
+
+
+
 # 其他待分类
 
 ifconfig（网卡信息）
@@ -527,6 +539,36 @@ which 查看可执行文件的位置。
 whereis 查看文件的位置。 
 locate  配合数据库查看文件位置。
 find  实际搜寻硬盘查询文件名称。
+
+
+
+lsof命令
+
+
+
+##### CSDN的linux命令
+
+https://blog.csdn.net/donaldsy/article/details/96350061
+
+linux命令
+
+ps -l
+
+pa -aux
+
+jobs：**查看**当前有多少在后台运行的命令，加上 -l 参数可以显示后天运行**的pid**
+
+**jobs -l | grep jupyter**
+
+ps -aux | grep jupyter **查看**运行的jupyter进程
+
+fg：将后台中的命令调至前台继续运行。如果后台中有多个命令，可以用 fg %jobnumber将选中的命令调出，%jobnumber是通过
+
+bg：将一个在后台暂停的命令，变成继续执行。如果后台中有多个命令，可以用bg %jobnumber将选中的命令调出，%jobnumber是通过jobs命令查到的后台正在执行的命令的序号(不是pid)
+
+
+
+
 
 
 

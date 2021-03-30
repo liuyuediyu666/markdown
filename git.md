@@ -88,7 +88,9 @@ git ls-tree HEAD
 
 创建Git版本库时，Git自动创建master分支，且head指向master。
 
-##### git config
+##### git config 
+
+配置文件位置在.git目录下config文件
 
 ##### git config --global user.name wanghonglei
 
