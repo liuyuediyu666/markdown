@@ -44,7 +44,19 @@ signifies 表示说明
 
 consumption 消费消耗 
 
-20210321
+eliminate 排除清除v
+
+elimination 淘汰排除消除n
+
+univariate 单变的单变量的adj
+
+variate 变量变数n
+
+variance 方差变动n
+
+variable 变化的可变的adj
+
+20210409
 
 
 

@@ -66,6 +66,10 @@ APP购物党（https://www.gwdang.com/）
 
 PowerDesigner：数据库模型设计
 
+视频转换王：网友推荐比格式工厂好用，更方便，字幕可自由选择。
+
+
+
 
 
 

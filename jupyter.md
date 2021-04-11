@@ -47,7 +47,9 @@ jupyter --version
 jupyter nbconvert --to markdown --output-dir "C:\\users\\hayden\\desktop\\ipynb\\md_convert" "C:\users\hayden\desktop\ipynb\*.ipynb" 
 ```
 
+### pandas.dataframe显示
 
+jupyter lab中，如果输出的dataframe太大，可以右键选择enable scrolling for outputs
 
 ### jupyter交互界面显示图片3方法
 
@@ -270,7 +272,9 @@ alt+enter，运行当前Cell，创建下一个Cell并进入编辑
 
 %time，统计单行运行时间。
 
-%%time，统计单元格运行时间。有时导致代码不执行，且不报错。
+%%time，统计单元格运行时间。有时导致代码不执行、空跑，且不报错，很多未知错误，对结果没把握不要用。
+
+
 
 %matplotlib inline，matplotlib绘图，一个notebook中只需要运行一次，则之后用matplotlib库作图不需要plt.show()即可把图展示出来。
 
