@@ -214,11 +214,15 @@ experimental 以实验为基础的实验性的adj
 
 
 
-(original primitive raw)
+(original primitive proto prototype raw)
 
 original 原来的起初的首创的独创的真迹的非复制的原作的adj原件原稿原作正本怪人n
 
 primitive 原始的远古的发展水平低的落后的人类或动物早期的adj文艺复兴前的艺术家n
+
+proto 原始原型原型机n
+
+prototype 原型雏形最初形态n
 
 raw 生的未煮的未加工的自然状态的未经分析的adj擦伤处n
 
