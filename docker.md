@@ -1,3 +1,24 @@
+### 一些报错处理：
+
+##### 启动容器或其他操作时会报错
+
+https://blog.csdn.net/weixin_42273374/article/details/82223640
+
+
+
+### 本地保存和加载镜像
+
+```shell
+docker save imagename | gzip > savename.tar.gz
+docker load -i savename.tar.gz
+```
+
+
+
+
+
+# 安装
+
 如果已有安装好的，需要先卸载旧的docker，以及相关的依赖。
 
 ```

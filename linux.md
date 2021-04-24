@@ -10,6 +10,12 @@ watch -n 1 free
 
 代指/home/username（windows下默认就是C盘/Users/username）
 
+##### 查看cuda版本，通常是下面目录
+
+cat /usr/local/cuda/version.txt 
+
+##### 机器学习大家都用ubantu系统，社区内容比较丰富。
+
 
 
 

@@ -1,3 +1,97 @@
+# mmtracking安装
+
+按照docs目录下的install.md文件安装即可，注意python要3.7（3.6有未知错误）。
+
+为什么要使用镜像？因为服务器centos的gcc版本为4.8.5，而mmdetection要求gcc4.9。
+
+为什么要使用镜像中的conda环境。因为自带的python为3.6，而mmtracking要求py3.y。
+
+请使用docker镜像：vistart/mmdetection:latest，先安装conda，再新建环境指定py3.7
+
+软件版本如下：
+
+```
+addict              2.4.0
+attrs               20.3.0
+certifi             2020.12.5
+cycler              0.10.0
+Cython              0.29.23
+dotty-dict          1.3.0
+flake8              3.9.1
+flake8-import-order 0.18.1
+importlib-metadata  4.0.1
+iniconfig           1.1.1
+kiwisolver          1.3.1
+matplotlib          3.4.1
+mccabe              0.6.1
+mkl-fft             1.3.0
+mkl-random          1.1.1
+mkl-service         2.3.0
+mmcls               0.10.0
+mmcv-full           1.3.1               /home/whl/mmcv-master
+mmdet               2.11.0              /home/whl/mmdetection-master
+mmpycocotools       12.0.3
+mmtrack             0.5.0               /home/whl/mmtracking-master
+motmetrics          1.2.0
+numpy               1.19.2
+olefile             0.46
+opencv-python       4.5.1.48
+packaging           20.9
+pandas              1.2.4
+Pillow              8.2.0
+pip                 21.0.1
+pluggy              0.13.1
+py                  1.10.0
+py-cpuinfo          8.0.0
+pycocotools         2.0.2
+pycodestyle         2.7.0
+pyflakes            2.3.1
+pyparsing           2.4.7
+pytest              6.2.3
+pytest-benchmark    3.4.1
+python-dateutil     2.8.1
+pytz                2021.1
+PyYAML              5.4.1
+scipy               1.6.2
+seaborn             0.11.1
+setuptools          52.0.0.post20210125
+setuptools-scm      6.0.1
+six                 1.15.0
+terminaltables      3.1.0
+toml                0.10.2
+torch               1.8.1
+torchvision         0.9.1
+typing-extensions   3.7.4.3
+wheel               0.36.2
+xmltodict           0.12.0
+yapf                0.31.0
+zipp                3.4.1
+```
+
+注意：dotty-dict有可能自动安装失败，可以手动下载工程手动安装，不要用pip安装。地址如下：
+
+https://github.com/pawelzny/dotty_dict
+
+##### 安装过程中会出现import mmcv报错，最后报错显示如下：
+
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+看下面解决方案，这应该是docker一个通用问题。
+
+https://blog.csdn.net/qq_35516745/article/details/103822597
+
+
+
+
+
+
+
+
+
+
+
+
+
 # mmdet的docker安装过程简略
 
 1、安装docker（省略）

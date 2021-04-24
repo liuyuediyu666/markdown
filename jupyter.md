@@ -39,7 +39,13 @@ jupyter --version
 
 # 常用
 
-### ipynb转markdown
+##### 打开本地文件
+
+```
+jupyter notebook --notebook-dir "c:\users\dell\desktop\njsteel\eda"
+```
+
+##### ipynb转markdown
 
 一种是linux下执行命令（jupyter nbconvert --to md notebook.ipynb），一种是在jupyter notebook交互界面可以导出md。
 
@@ -47,11 +53,11 @@ jupyter --version
 jupyter nbconvert --to markdown --output-dir "C:\\users\\hayden\\desktop\\ipynb\\md_convert" "C:\users\hayden\desktop\ipynb\*.ipynb" 
 ```
 
-### pandas.dataframe显示
+##### pandas.dataframe显示
 
 jupyter lab中，如果输出的dataframe太大，可以右键选择enable scrolling for outputs
 
-### jupyter交互界面显示图片3方法
+##### jupyter交互界面显示图片3方法
 
 ```python
 """使用pillow"""
@@ -67,6 +73,8 @@ plt.imshow(img2)
 from IPython.display import Image
 Image('abcd.jpg')
 ```
+
+
 
 
 

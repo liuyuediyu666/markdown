@@ -1,8 +1,12 @@
 # 杂
 
-### 待处理
+##### 待处理
 
-##### pip机制待学习，帮助了解包的发布
+pip机制待学习，帮助了解包的发布
+
+##### Python的.py与Cython的.pxd.pyx.pyd 文件格式之间的主要区别
+
+https://cloud.tencent.com/developer/news/180987
 
 
 

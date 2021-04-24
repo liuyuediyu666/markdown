@@ -1,3 +1,21 @@
+ported to 移植到v
+
+messy 脏乱的凌乱的adj
+
+fuzzy 模糊的绒毛般的adj
+
+sharp 锋利的尖的清晰的adj升半音n
+
+detach 拆卸分开脱离v
+
+split 分裂分开分摊v分歧划分n
+
+break down 损坏失败分解捣毁消除破除v
+
+hotchpotch 杂乱无章的一堆东西大杂烩n
+
+hodgepodge 混合物大杂烩菜n
+
 principles 原则观念信条n
 
 criterion 标准准则原则n

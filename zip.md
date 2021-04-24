@@ -115,9 +115,21 @@ https://github.com/npubird/KnowledgeGraphCourse
 
 爬山算法
 
+用牛顿法，求6的开方
+
 ##### 计算机操作系统、计算机网络
 
 https://github.com/CyC2018/CS-Notes
+
+##### 孤立森林
+
+https://zhuanlan.zhihu.com/p/74508141
+
+
+
+
+
+
 
 
 

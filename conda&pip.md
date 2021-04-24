@@ -12,13 +12,17 @@ anaconda原理，文件结构，安装包位置，主要命令
 
 source /home/workflow/conda/bin/activate 环境名称
 
+##### conda install -c命令指定频道相关。可以在包的前面，也可放在包的后面。
 
+https://cloud.tencent.com/developer/ask/50097
 
 ##### 关于如何直接拷贝移植conda环境
 
 https://blog.csdn.net/qq_41554005/article/details/89052435
 
+##### linux中安装conda的具体步骤，有效
 
+https://blog.csdn.net/clksjx/article/details/84192626
 
 # conda源的管理
 
