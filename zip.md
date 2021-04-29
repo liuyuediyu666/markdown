@@ -153,6 +153,8 @@ hadoop fs -rm -r -skipTrash /path_to_file/file_name  # 执行删除文件或文�
 
 # hardware
 
+硬盘笼
+
 30系列显卡是公版最好吗？
 
 不可能啊，目前华硕猛禽最好，供电默频算封顶的了。

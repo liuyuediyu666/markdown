@@ -551,6 +551,8 @@ python -m folder1.folder2.second1
 
 # 优质参考
 
+**keyword传参很容易混乱。try方法。重写父类有时会看不出来。nan在df中。
+
 ##### 关于模块的机制（知乎）
 
 https://zhuanlan.zhihu.com/p/33913131

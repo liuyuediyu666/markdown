@@ -1,3 +1,11 @@
+docker cp   filename id:/home
+
+docker commit ???
+
+
+
+
+
 ### 一些报错处理：
 
 ##### 启动容器或其他操作时会报错

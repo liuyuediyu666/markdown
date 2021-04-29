@@ -1,3 +1,11 @@
+snippet 一小条消息一小段谈话音乐视频n
+
+out-of-the-box 开箱即用
+
+on-the-fly 即时实时
+
+mock data 模拟数据
+
 ported to 移植到v
 
 messy 脏乱的凌乱的adj
@@ -213,6 +221,10 @@ still on goint 进行中
 known issues 已知问题
 
 one size fits all 一刀切
+
+
+
+(category form kind type)
 
 
 
@@ -786,13 +798,11 @@ encounter 遭遇遇到v相遇邂逅n
 
 
 
-(council counsel counsul)
+(council counsel)
 
 council 议会委员会n
 
 counsel 劝告忠告n提供专业咨询建议v
-
-counsul 领事n
 
 
 

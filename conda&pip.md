@@ -127,6 +127,10 @@ pip install --upgrade pk --ignore-installed pk
 
 pip show autokeras  # 显示包信息
 
+pip no-catch-dir install #见help
+
+
+
 
 
 ### 配置pip的源
